@@ -43,6 +43,7 @@ guests.splice(1, 1);
 console.log("Remove", guests);
 
 // Add at index
-guests.splice(1,0, "Peggy")
+guests.splice(1,0, "Peggy1", "Peggy2", "peggy3")
 console.log("Added at index", guests);
+
 
