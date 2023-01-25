@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!-- html is the root tag of any web page. All other elements should go within this html tag -->
+<html>
+
+<!-- meta information about your page. Search engine links. Title. etc...  -->
+    <head>
+        <title>Adam's Gator Fan Page</title>
+
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Indie+Flower&display=swap" rel="stylesheet">
+
+        <style>
+            li{color: darkturquoise; background-color: black;} /*tag selector **/
+            #trophyWinners{color:thistle;} /*id selector **/
+            h3{color: tomato;}
+            td.champ{color: blue;} /*class selector **/
+            th.champ{color: orange;}
+            p{font-family: 'Dancing Script', cursive; font-family: 'Indie Flower', cursive;}
+        </style>
+       
+    </head>
+
+<!-- anything that will display on the web page proper goes in the body -->
+    <body>
+
+
+        <div class="container">
+
+            <div class="Intro">
+                <h1 style="color: rebeccapurple;">Gator Fan Page</h1>
+                <h6>by Adam Ranieri</h6>
+        
+                <p>This is a fan page for the Florida Gators. 
+                They Gators play at the <b>University of Florida</b> (UF). The university is in Gainesville Florida. The university is where Gatorade <sub>tm</sub> was invented.</p>        
+            </div>
+
+            <div class="hesiman">
+                <h3 id="trophyWinners">Heisman Trophy winners</h3>
+                <ul>
+                    <li>Steve Spurrier</li>
+                    <li>Danny Wuerffel</li>
+                    <li>Tim Tebow</li>
+                    <li style="color: red;" ><del>Kyle Trask</del></li>
+                </ul>
+            </div>
+
+            <div class="championships">
+                <h3>UF championships</h3>
+                <table>
+                    <thead>
+                        <tr><th class="champ">Opponent</th><th class="champ">Year</th></tr>
+                    </thead>
+                    <tbody style="display: flex; justify-content: space-between;">
+                        <tr><td class="champ">FSU</td><td>1996</td></tr>
+                        <tr><td class="champ">Oklahoma</td><td>2006</td></tr>
+                        <tr><td class="champ">Ohio State</td><td>2008</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="qbpic">
+                <img 
+                src="https://www.gatorcountry.com/wp-content/uploads/2021/10/Florida-Gators-Football-Florida-Gators-Football-Gator-Walk-vs-Georgia-Bulldogs-10-30-2021-045-1-1021x580.jpg" 
+                alt="A photo of Anthony Richardson"
+                height="400px"
+                width="600px"
+                />
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+    </body>
+
+</html>

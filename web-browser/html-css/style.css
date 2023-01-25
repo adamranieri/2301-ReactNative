@@ -1,0 +1,19 @@
+p{color:violet;}
+.container {  display: grid;
+    grid-template-columns: 0.4fr 0.9fr 0.5fr 2.9fr 0.3fr;
+    grid-template-rows: 0.5fr 0.9fr 0.3fr 2.3fr 1fr;
+    grid-auto-columns: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+  }
+  
+  .Intro { grid-area: 2 / 2 / 3 / 5; }
+  
+  .hesiman { grid-area: 4 / 2 / 5 / 3; }
+  
+  .championships { grid-area: 4 / 4 / 5 / 5; }
+  
+  .qbpic { grid-area: 5 / 3 / 6 / 4; }
+  
+  
+  
