@@ -3,6 +3,7 @@
   - Like Micorsoft word or excel
 - ***ANYTHING*** on a web page, the html, the css, the JS is visible and editable by the User.
 - Web Browsers are fault toleratn and try to make your web pages work even if not 100% compliant
+- **Hosting** is making a piece of software publicly accesible
 
 ## The main features of a web browser
 - HTML/CSS renderer
