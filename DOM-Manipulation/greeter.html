@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <!-- all input tags have a attribute called value that holds the value in the field -->
+    <input type="text" placeholder="Trevin" oninput="setName(event)"> 
+    <button onclick="greet(event)">Get Greeted</button>
+</body>
+<script>
+    // the number 1 most difficult thing in web dev is keeping the HTML Visual UI in sync with values in JS
+
+    let name = "";// this variable will represent the value in the input
+    // variables defined at the top of script effectively become global even if you use let or const
+    // they are accessible in the console
+
+    function setName(e = new Event()){
+        name = e.target.value;// everytime this function is called we use the event object to see the value of the input field. 
+        //Assign that value to my variable in JS
+    }
+
+    function greet(event = new Event()){
+        alert("Greetings to you " + name)
+    }
+
+
+
+
+</script>
+</html>

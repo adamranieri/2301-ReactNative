@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Full Name</title>
+</head>
+<body>
+    <label for="fnameInput">First Name</label>
+    <input id="fnameInput" type="text" placeholder="John" oninput="setFname(event)">
+
+    <label for="lnameInput">Last Name</label>
+    <input id="lnameInput" type="text" placeholder="Doe" oninput="setLname(event)">
+
+    <button onclick="showFullName(event)">Show Full Name</button>
+
+    <div id="fullNameDiv">
+
+        
+    </div>
+    
+</body>
+<script>
+    let fname = "";
+    function setFname(event = new Event()){
+        fname = event.target.value;
+    }
+
+    let lname = "";
+    function setLname(event = new Event()){
+        lname = event.target.value;
+    }
+
+    function showFullName(event = Event()){
+        const fullNameDiv = document.getElementById("fullNameDiv");
+
+        //create heading element
+        const heading = document.createElement("h1");
+        heading.innerText = fname + " " + lname;
+
+        //append that element to the div
+        fullNameDiv.appendChild(heading);
+    }
+
+
+</script>
+</html>

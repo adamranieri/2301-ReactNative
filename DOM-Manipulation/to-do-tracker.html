@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tracker</title>
+</head>
+<body>
+    <input type="text" placeholder="dishes" oninput="setTodoName(event)"> <button onclick="addTodo(event)">Add Todo</button>
+
+    <h3>Todos</h3>
+    <ul id="todoList">
+    </ul>
+    
+</body>
+<script>
+    // 1. write the dummy HTML
+    // 2. create your state variables
+    let todoName = "";
+    let todos = [];// whenever you have a list and what to track values I higly reccomend creating an ID
+
+    function setTodoName(event = new Event()){
+        todoName = event.target.value;
+    }
+
+    function addTodo(event = new Event()){
+        const todo = {id:Math.random(), name:todoName};
+        todos.push(todo);
+        renderTodos();// It is on me as the developer to know that a stateful value has changed and I need to update the UI
+    }
+
+    function removeTodoById(id = 0){
+        todos = todos.filter(todo => todo.id !==id);
+        renderTodos();
+    }
+
+    //render functions read a state variable and create the appropriate html
+    function renderTodos(){
+        const todoList = document.getElementById("todoList");
+
+        //clears the list of all elements. Generally bad practice as it is unsafe
+        todoList.innerHTML = '';
+
+        //add all the elements
+        for(const todo of todos){
+            const li = document.createElement("li");
+            li.innerText = todo.name;
+            li.id = todo.id;
+
+            const button = document.createElement("button");
+            button.innerText = "Delete";
+            button.onclick = () =>{
+                removeTodoById(todo.id)
+            }
+            li.appendChild(button);
+
+
+            todoList.appendChild(li);
+        }
+
+    }
+
+
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hello</title>
+</head>
+<body>
+    <button id="helloBtn">Hello</button>
+
+    <!-- directly add an onclick with the function to call and pass in the event. The variable must be named event -->
+    <button onclick="hola(event)">Hola</button>
+    
+</body>
+<script>
+
+    
+    const helloBtn = document.getElementById("helloBtn");
+    // addEventListener. We get an element from the DOM. What event to listen for. Pass that event information into the callback function
+    helloBtn.addEventListener("click", event => {
+        console.log(event);
+        console.log(event.target);
+        console.log(event.target.id);
+        alert("Hello to you!!!");
+    });
+
+    function hola(e = new Event()){
+        console.log(e);
+        // properties on an event
+        console.log(e.target);// The HTML element that genearated the event
+        alert("Hola todos");
+    };
+
+</script>
+</html>
