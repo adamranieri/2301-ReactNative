@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Poke Finder</title>
+</head>
+<body>
+
+    <input type="text" placeholder="machamp" oninput="setPokeName(event)">
+    <button onclick="findThatPokemon()">Find Pokmon</button>
+
+    <div id="pokeInfo">
+
+        
+
+    </div>
+    
+</body>
+<script>
+    let pokemon = {};
+
+    let pokename = "";
+    function setPokeName(event = new Event()){
+        pokename = event.target.value;
+    }
+
+ 
+    async function findThatPokemon(){
+        const httpResponse = await fetch("https://pokeapi.co/api/v2/pokemon/"+ pokename.toLowerCase());
+
+        //error handling
+        if(httpResponse.status === 404){
+            alert(`No pokemon with name ${pokename} found`);
+            return;
+        }
+
+        const body = await httpResponse.json();
+        pokemon = body;
+        renderPokeInfo();
+    }
+
+    function renderPokeInfo(){
+        const name = pokemon.name;
+        const height = pokemon.height;
+        const weight = pokemon.weight;
+        const spriteLink = pokemon.sprites.front_default;
+
+        const pokeInfoDiv = document.getElementById("pokeInfo");
+
+        // name heading
+        const nameHeading = document.createElement("h3");
+        nameHeading.innerText = name;
+
+        //stats heading
+        const statsHeading = document.createElement("h4");
+        statsHeading.innerText = `Height ${height}  Weight ${weight}`;// string interpolation syntax
+
+        //poke sprite image
+        const pokeImage = document.createElement("img");
+        pokeImage.src = spriteLink;
+
+        //clear out html in the div
+        pokeInfoDiv.innerHTML = "";
+
+        //Append all my new elements to the dive
+        pokeInfoDiv.appendChild(nameHeading);
+        pokeInfoDiv.appendChild(statsHeading);
+        pokeInfoDiv.appendChild(pokeImage);
+    }
+
+
+</script>
+</html>

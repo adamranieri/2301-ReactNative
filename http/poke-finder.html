@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" placeholder="pikachu" oninput="setPokename(event)">
+    <button onclick="findPokemon(event)">Find that pokemon</button>
+    
+</body>
+<script>
+    let pokename = "";
+    function setPokename(event = new Event()){
+        pokename = event.target.value;
+    }
+
+    // to use the await keyword in a function you have to label the function as async
+    async function findPokemon(event){
+        // we can use the fetch function to make an HTTP request in JS
+        // when you make an HTTP request you get a promise of an http response
+        // await will pause the JS function execution to wait for the promise to be fulfilled. For the data to actually arrive
+        const httpResponse = await fetch("https://pokeapi.co/api/v2/pokemon/"+pokename);
+        console.log(httpResponse);
+        
+
+        // HTTP Responses happen in 2 steps
+        // 1. the headers and status code of an response is recieved
+        // 2. the body of the http response is downloaded
+        // in some cases the body can be huge. Downloading a video could take several minutes
+        const body = await httpResponse.json();
+        console.log(body)
+    }
+
+    // same functionallity as above
+    function findPokemon2(){
+        fetch("https://pokeapi.co/api/v2/pokemon/ditto")
+        .then(httpResponse => httpResponse.json())
+        .then(body=> console.log(body))
+
+    }
+
+</script>
+</html>
