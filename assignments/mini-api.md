@@ -1,0 +1,14 @@
+# Mini API
+- Write a web page that interacts with an API.
+  - You can choose the API
+  - It can be on anything you want so long as it is work appropriate
+  - examples
+    - Magic the gathering
+    - World of Warcraft
+    - Weather API
+- [List of free apis](https://github.com/public-apis/public-apis)
+- ***PICK AN API THAT DOES NOT HAVE CORS***
+  - If you make a fetch request and see CORS in the error on the console pick another API!
+- When you are finished push your code to github and host it
+- I will give you an hour Monday morning as extra time to work on it. 
+- You will demo it Monday
