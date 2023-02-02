@@ -7,7 +7,7 @@
 ```
 3. Add the url to your home page at the root level of the JSON object (on the same level as "name", "version",etc.). It will be of the form:
 ```JSON
-"homepage": "https://<github_username>.github.io/<repo_name>
+"homepage": "https://<github_username>.github.io/<repo_name>"
 ```
 4. Here is a [sample](https://github.com/adamranieri/hello/blob/master/package.json) package.json.
 5. Commit and push your changes.
