@@ -1,6 +1,11 @@
 # React
 [Mass Effect Fan Site](https://github.com/adamranieri/mass-effect-fansite)
 
+## Commands to know
+- `npx create-react-app appname --template=typescript`
+  - Creates a new project
+
+
 ## The problem
 - Web Page/ UI development is hard
   - Web Page can become very complex
@@ -64,3 +69,41 @@
   - function that returns JSX
 - Components can be nested
   - Components can use other components
+
+### Hooks
+- `useState()`
+  - Create a stateful value within a component
+  - A stateful value is a value that when updates React is signaled to rerender the component
+  - useState() works by suppling a new object to the set function.
+    - You never mutate the state directly
+  - useState() will not scale very well as your applications get more complex
+    - Good usecases
+      - a simple form
+      - A single list
+      - a toggle value
+- `useReducer()`
+  - Another way of handling stateful values within react
+  - You interact with the data in an abstracted fashion
+    - it scales a lot easier
+      - Very easy to ***Test***
+        - Save sooooo many bugs
+    - Decouples state management from the UI and component logic
+  - Key Terms
+    - ***State***
+      - some object that you are interacting with
+      - Making changes to
+    - ***Action***
+      - Object
+      - contains a type property
+        - Says what type of action it is 
+      - contains a payload property
+        - Any data that you want to send to the reducer
+    - ***Reducer Function***
+      - 1st parameter
+        - The state
+      - 2nd paramater
+        - An action
+      - Return type
+        - BRAND NEW OBJECT
+        - Of the same type as the state
+        - The returned state is what the state looks like once you applied the action
