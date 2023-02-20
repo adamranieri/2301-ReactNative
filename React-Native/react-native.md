@@ -59,3 +59,10 @@
     - If you get an error message about digital envelope routine unsupported, run this command:
     - ```set NODE_OPTIONS=--openssl-legacy-provider``` for Windows or
     - ```export NODE_OPTIONS=--openssl-legacy-provider``` for Mac
+
+## TypeScript
+- Installing some dependencies 
+    - ```npm install -D @tsconfig/react-native @types/jest @types/react @types/react-test-renderer typescript```
+- Change our App.js to be App.tsx
+- Want to include `import React from 'react'` at the top of our .tsx files
+- For every new component, we want to give the extension .tsx
