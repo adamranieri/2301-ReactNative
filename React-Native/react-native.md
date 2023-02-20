@@ -62,7 +62,7 @@
 
 ## TypeScript
 - Installing some dependencies 
-    - ```npm install -D @tsconfig/react-native @types/jest @types/react @types/react-test-renderer typescript```
+    - ```npm install -D @tsconfig/react-native @types/jest @types/react @types/react-test-renderer typescript @types/react-native@~0.70.6```
 - Change our App.js to be App.tsx
 - Want to include `import React from 'react'` at the top of our .tsx files
 - For every new component, we want to give the extension .tsx
