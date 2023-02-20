@@ -25,7 +25,7 @@ export default function CoreComponents () {
             <Text>This is the image example:</Text>
             {/* <Image style = {styles.image} source={{uri:"https://upload.wikimedia.org/wikipedia/en/thumb/3/33/Patrick_Star.svg/1200px-Patrick_Star.svg.png"}} /> */}
             <SubImage uri = 'https://upload.wikimedia.org/wikipedia/en/thumb/3/33/Patrick_Star.svg/1200px-Patrick_Star.svg.png' key = 'https://upload.wikimedia.org/wikipedia/en/thumb/3/33/Patrick_Star.svg/1200px-Patrick_Star.svg.png'/>
-            <Image style = {styles.image} resizeMode = 'contain' source= {require('../assets/brian.png')} />
+            {/* <Image style = {styles.image} resizeMode = 'contain' source= {require('../assets/brian.png')} /> */}
 
             <ScrollView contentContainerStyle = {styles2.imagesContainer}>
                 {uris.map(uri => (
