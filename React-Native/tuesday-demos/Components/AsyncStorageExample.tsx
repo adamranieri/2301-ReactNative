@@ -5,10 +5,10 @@ import {useState} from 'react';
 export default function AsyncStorageExample() {
     const [username, setUsername] = useState<string>('')
 
-    // setInterval takes in a callback function and a time in miliseconds and it executes that function in intervals
-    setInterval(() => {
-        console.log("Hello")
-    }, 1000)
+    // // setInterval takes in a callback function and a time in miliseconds and it executes that function in intervals
+    // setInterval(() => {
+    //     console.log("Hello")
+    // }, 1000)
 
     async function login() {
         // call the set item to set the username to the storage:
@@ -25,6 +25,7 @@ export default function AsyncStorageExample() {
 
    async  function clearState() {
         await AsyncStorage.clear();
+        await getUsername();
     }
 
     return (<View>

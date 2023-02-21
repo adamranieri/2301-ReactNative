@@ -12,7 +12,8 @@
     - May need to install webpack dependencies. If so, it will show you the commands needed to install
     - To access from phone, make sure on some network as computer and have expo go app installed on phone
 4. If you receive an error about digital envelope routine unsupported, follow these steps and try starting app from CMD/terminal outside of VS code:
-    -```set NODE_OPTIONS=--openssl-legacy-provider``` for Windows (MAKE SURE ON CMD NOT POWERSHELL) or
+    - ```set NODE_OPTIONS=--openssl-legacy-provider``` for Windows Command Prompt or 
+    - ```$env:NODE_OPTIONS = "--openssl-legacy-provider"``` for Windows Powershell
     - ```export NODE_OPTIONS=--openssl-legacy-provider``` for Mac
 5. To add Typescript to existing project:
     - ```npm install -D @tsconfig/react-native @types/jest @types/react @types/react-test-renderer typescript @types/react-native@~0.70.6```
