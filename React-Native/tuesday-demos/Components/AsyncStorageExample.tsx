@@ -29,6 +29,7 @@ export default function AsyncStorageExample() {
 
     return (<View>
         <Text>Async Storage Example!</Text>
+        <Text>npx expo install @react-native-async-storage/async-storage</Text>
         <TextInput value = {username} style = {styles.input} onChangeText={setUsername} />
        <Text>{username}</Text>
        <Button title = "Login" onPress={login}/>
