@@ -5,13 +5,15 @@ import FlatListExample from './Components/FlatListExample';
 import SectionListExample from './Components/SectionListExample';
 import ButtonExample from './Components/ButtonExample';
 import TouchableExample from './Components/TouchableExample';
+import AsyncStorageExample from './Components/AsyncStorageExample';
 
 export default function App() {
   return  <View style={styles.container}>
         {/* <FlatListExample /> */}
         {/* <SectionListExample /> */}
         {/* <ButtonExample /> */}
-        <TouchableExample />
+        {/* <TouchableExample /> */}
+        <AsyncStorageExample/>
       <StatusBar style="auto" />
     </View>
   ;

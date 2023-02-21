@@ -1,0 +1,13 @@
+- Cookie Clicker Clone
+    - https://orteil.dashnet.org/cookieclicker/
+    - Features
+        - Must click an element to get points
+        - Must display score
+        - Must store score using async storage
+        - Must have at least 2 upgrades:
+            - Can upgrade power of click, how many points you get from one click
+                - For example: buy an uprade for 50 points, all subsequent clicks grant you 2 points instead of 1, etc.
+            - Can buy an idle clicker (make points even when you are not clicking)
+                - For example, spend 100 points on an idle clicker that gives you points when you are not clicking
+        - Must include alerts and vibrations
+            - ex: vibrate when you reach a certain threshold, alert when buying a new upgrade, etc.
