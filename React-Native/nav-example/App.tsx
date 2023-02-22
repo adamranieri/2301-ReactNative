@@ -8,6 +8,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import HomeScreen from './screens/HomeScreen';
 import AboutScreen from './screens/AboutScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import LinkingExample from './screens/LinkingExample';
 
 // create this Stack variable based on our param list that we made in types
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -24,6 +25,11 @@ export default function App() {
                 <Stack.Screen
                 name = "About"
                 component={AboutScreen}/>
+                <Stack.Screen
+                name = "Profile"
+                component={ProfileScreen}/>
+                <Stack.Screen name = "LinkingExample"
+                component={LinkingExample}/>
         </Stack.Navigator>
 
    </NavigationContainer>
