@@ -15,7 +15,7 @@
     - ```set NODE_OPTIONS=--openssl-legacy-provider``` for Windows Command Prompt or 
     - ```$env:NODE_OPTIONS = "--openssl-legacy-provider"``` for Windows Powershell
     - ```export NODE_OPTIONS=--openssl-legacy-provider``` for Mac
-5. To add Typescript to existing project:
+5. To add Typescript to existing project (only if you do NOT have Typescript):
     - ```npm install -D @tsconfig/react-native @types/jest @types/react @types/react-test-renderer typescript @types/react-native@~0.70.6```
 
 
