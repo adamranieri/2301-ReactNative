@@ -10,6 +10,7 @@ export default function FetchExample() {
         getAllItems()
         // because getAllITems is async, returns a promise, so we use the .then function to 
         // take the resolved value and assign it to the state
+        // .then takes a callback function and says "execute this when the promise is resolved"
         .then(res => {
             console.log(res);
             setItems(res);
