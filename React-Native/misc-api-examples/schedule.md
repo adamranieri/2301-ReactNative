@@ -1,0 +1,10 @@
+- 3:00-4:00 EST - Coding Challenge on Rev Pro
+- 4:00 - 5:00 EST until you get it done- Eduflow
+    - Make sure to have all of the following complete:
+        - Pre-Assessment video
+        - Professoinalism Quiz
+        - Communication Quiz
+        - PDP Buddy STAR Question
+        - Written Communication Activity
+        - Interview Prep Workshop/Video
+        - Mini Mock Interview

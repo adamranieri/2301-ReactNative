@@ -15,7 +15,9 @@
     "react-dom": "18.1.0",
     "react-native": "0.70.5",
     "react-native-web": "~0.18.9",
-    "@expo/webpack-config": "^0.17.2"
+    "@expo/webpack-config": "^0.17.2",
+    "expo-battery": "~7.0.0",
+    "expo-location": "~15.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
