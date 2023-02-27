@@ -105,3 +105,12 @@ class Car {
 ## Wrapper Classes (More on Collections)
 - Integer, Float, Character etc.
 - Every primitive type has a corresponding class which then lets us have methods on those types
+
+## The Object class
+- In java, we have classes (which are like blueprints) and we have objects that are the instances of those blueprints
+- But there is a class in Java called Object
+- Because every thing we create in Java is an object (besides primitives), the Objecr class serves as a common ancestor for all other classes we create
+- Every class we make will inherit from the Object class, meaning that it will have all of the methods that the Object class has
+    - toString - takes our object and converts to a string representation
+    - equals - compares two objects and returns whether or not they are equal to each other
+    - hashCode - returns an integer representation of an object

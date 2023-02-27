@@ -59,6 +59,9 @@ public class DataTypes {
         String name = new String("Rory");
         String name2 = new String("Rory");
 
+        char c1 = 'f';
+        System.out.println((int) c1);
+
 
 
 
