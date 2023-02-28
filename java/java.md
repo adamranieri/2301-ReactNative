@@ -114,3 +114,9 @@ class Car {
     - toString - takes our object and converts to a string representation
     - equals - compares two objects and returns whether or not they are equal to each other
     - hashCode - returns an integer representation of an object
+
+## super keyword
+- the super keyword lets children access elements of the parent class:
+    - calling super() calls the parent constructor
+    - super.method calls the parent method
+    - super.field access the parent fields
