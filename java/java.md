@@ -120,3 +120,55 @@ class Car {
     - calling super() calls the parent constructor
     - super.method calls the parent method
     - super.field access the parent fields
+
+## Scopes:
+- method - a variable that we declare in a method won't be accessible from outside the method
+- block scope - a variable declared in a block can't be accessible from outside
+    - this is useful with for loops because it lets us redeclare the int i counter for every for loop
+- Static/Class scope - method/variable is tied to the class itself (example: Calculator.PI)
+- Instance/Object scope - variables that are attached to the particular instance (example: animal.species)
+
+## Access Modifiers:
+- Access modifier is a keyword that we apply to a method, class, variable that indicates where in the program it can be accessed
+- public - it can be accessed anywhere in the project (no matter what package it's in)
+- private - it can only be accessed within that same class
+    - methods can only be called from other methods in that class
+    - variables can only be accessed by methods in that class
+- default - accessible within the same package
+    - The tricky part is that we don't actually declare anything as default
+    - "Default" in this case means we don't give an access modifier
+- protected - accessible within the same package and sub-classes
+    - can apply to methods and variables
+
+## Non-Access Modifiers:
+- These are modifiers that don't affect our access to the methods/variable/class
+- abstract
+    - apply to class to make it possible to have abstract methods
+    - apply to method to make that method abstract (we don't need a method body)
+- static
+    - Scopes the method/variable to the class rather than an instance
+        - ex: A calculator class, we could have a static field for PI because PI will not vary depending on which instance we have
+        - We use the static keyword on our main methods because we don't actually need an instance of our class to run them
+    - We can't call non-static methods or access non-static variables from a static context/method
+    - We CAN call static methods and access static variables from a non-static/instance method
+- final
+    - 3 different contexts:
+        - If we apply it to a variable, it means we can't reassign it
+            - If we have an object declared as final, we can reassign the fields
+        - If we apply it to a method, we can't override it
+        - If we apply it to a class, we can't extend it
+
+## This keyword:
+- We use the "this" keyword in our methods to indicate that we want this particular instance's field or method
+```java
+class Animal {
+    String name;
+
+    
+    public Animal(String nameInput) {
+        // the "this" keyword denotes that we want to access the instance's name field rather than the parameter that we passed in:
+        this.name = nameInput;
+    }
+}
+
+```

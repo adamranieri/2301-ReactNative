@@ -25,6 +25,9 @@
 - Multiple Inheritance (NOT ALLOWED IN JAVA*) - one class extending many parents
 - Hybrid (NOT ALLOWED IN JAVA) - combination of multiple and hierarchical
 - Key Takeaway: One class cannot inherit multiple parents
+- The exception to the Multiple and Hybrid rules is that we can implement multiple interfaces
+    - We just have to implement all abstract methods we get from every interface (unless the class that's implementing is abstract)
+    - See Flying Fish Example (Tuesday.OOP.Inheritance.interfaces)
 
 ### Polymorphism
 #### Run-Time (Dynamic) Polymorphism
@@ -50,6 +53,7 @@
 - For example, we define the expected output/input/general behavior in a parent class but leave the specific implementation up to a child class
 - In Java, we can achieve abstraction in 2 ways:
     - Abstract class
+        - concrete methods have a body and actual code
         - Can have concrete and abstract methods
         - You can't have abstract methods in a concrete class
         - If we extend an abstract class, we either have to declare it as abstract or fill out the methods
@@ -57,6 +61,8 @@
         - IntelliJ shortcut: Right-Click + Generate + Implement Methods + Select methods that you want to override (taken from the parent class)
     - Interface
         - An interface is totally abstract (no concrete methods*)
+            - Exceptions are default and static methods
         - An interface only has abstract methods and must be *implemented* instead of extended
 - Example:
+    - Shape has abstract area method which is filled out in child classes
     
