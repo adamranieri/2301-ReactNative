@@ -172,3 +172,55 @@ class Animal {
 }
 
 ```
+
+## Exceptions and Errors:
+- Both are unwanted/unexpected events that happen in our program
+- An error is something we don't usually try to handle or control
+    - Out of Memory
+    - Stack Overflow
+- An exception is something we can and should handle in our program
+    - Checked
+    - Unchecked exceptions
+
+### Checked Exceptions
+- Checked at compile time
+- Examples: ClassNotFoundException, SQLException, IOException, FileNotFoundException
+- In our IDE, we get feedback if our code has the potential to throw these exceptions
+
+### Unchecked Exceptions
+- Runtime exception
+- Not checked at compile time
+- Examples: NullPointException, ClassCastException, ArithmeticException, ArrayIndexOutOfBoundsException
+
+![Exception Diagram](https://media.geeksforgeeks.org/wp-content/uploads/Exception-in-java1.png)
+
+### Handling Exceptions
+#### Try-Catch Block
+- "Try" some code that is problematic, it could throw an exception
+- "Catch" the exception and specify what we do if that exception is caught
+    - In the catch block we specify which exception we're catchin
+    - We write the code to handle the case where the exception happens
+        - We could just do a print statement
+        - We might have to set some value
+- Finally - 
+    - This block of code will run no matter what
+    - whether or not the exception is thrown
+
+#### Throws Keyword
+- we declare it in the method declaration and we specify which exception(s) could be thrown by this method
+- Eliminate the need for a try-catch
+    - Be careful because the exception could still arise
+
+#### Throw vs Throws Keyword:
+- Throws - keyword is part of our method signature which warns that the method has code in it that could throw particular exception
+- Throw - an "action", we explicitly state that we want to throw the exception
+
+
+### Wrapper Classes:
+- Class representation of primitives:
+- Required when declaring generics
+- int vs Integer
+- char vs Character
+- double vs Double
+- boolean vs Boolean
+- long vs Long
