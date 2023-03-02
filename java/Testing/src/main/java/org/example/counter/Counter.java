@@ -10,21 +10,22 @@ public class Counter {
 
     // increment the counter by 1
     public void increment() {
+        this.value += 1;
 
     }
 
     // decrease the counter by 1
     public void decrement() {
-
+        this.value --;
     }
 
     // get value should return the value:
     public int getValue() {
-        return -1;
+        return this.value;
     }
 
     // this should reset the counter to 0
     public void reset() {
-
+        this.value = 0;
     }
 }

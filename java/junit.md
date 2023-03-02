@@ -39,3 +39,18 @@
         - Helps to point out awkward method declarations
         - Identify areas to improve
     - Nice workflow and lets us see tangible progress as we fill out our methods
+
+### Testing Scenarios
+- When applicable, we want to test both the positive case and negative case
+    - ex: we have a method that returns whether a value is even or odd
+        - We would want at least 2 tests to test the positive and negative case
+    - Code Coverage - a measure of which lines of your code are being run when you test
+        - let's say we have an if/else statement, we would want to make sure we have test cases that cover both possible scenarios in order to get the most coverage
+        - IntelliJ lets you see coverage by right-click and run tests with coverage
+        - Testing a folder/package will test everything in that folder
+            - We can also just test a class
+            - We can also just test a method
+- When testing methods that accept some sort of collection of data
+    - empty collection
+    - collection with exactly 1 element
+    - collection with 2 or more
