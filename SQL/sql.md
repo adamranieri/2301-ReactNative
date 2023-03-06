@@ -141,3 +141,44 @@
 - Delete - deletes the data from the table with more control if you include a where clause
     - truncate is the same as delete with no where clause
 
+## Joins
+- A way to combine the results from different tables in one query
+    - useful if we have multiplicty relationships between tables
+
+### Different Types of Joins
+1. Inner Join - we take records from tables that have matches in both tables
+- ```select person.name, pet.name from person join pet on pet.owner_id = person.id```
+- Only display records with matches in both tables
+- For example, if there was a person with no pets, we wouldn't see that person
+- If there was a pet with no owner, we wouldn't see that pet
+2. Left Outer Join - we take all records from the left side, but not necessarily everything from the right side
+    - we could have null values in the right table
+3. Right Outer Join - we take all records from the right side, but not necessarily everything from the left side
+    - could have null values in the left table
+4. Full Outer Join
+    - we take everything from both tables, could have null values on either side
+5. Cross Join
+    - cartesian product
+    - return every combination of table 1 and table 2
+    - ```select * from person cross join pet order by person.name;```
+- 6. Self Join
+    - Joining a table with itself
+    - ```select pet1.name as pet1_name, pet2.name as pet2_name from pet pet1 inner join pet pet2 on pet1.species = pet2.species and pet1.id != pet2.id;```
+
+### Set Operations
+- Set operations operate on the results of 2 queries
+1. Union - taking everything from both queries
+2. Intersect - taking records that match both queries
+3. Union All - taking everything from both queries and include duplicates
+4. Except - takes everything from the first query except those that appear in the second query
+
+### Sub Queries
+- We can use queries within queries:
+- ```select * from person where salary > (select avg(salary) from person);```
+
+### Views
+- store the results of a query
+
+
+
+![Different Types of Joins](https://dq-blog-files.s3.amazonaws.com/joins-tutorial/join_venn_diagram.svg)

@@ -35,6 +35,11 @@
     - The password is whatever you configured on AWS
 11. When you're done, you can configure your application.properties file to look something like this:
 
+## To Delete:
+- From RDS instances, select the instance
+- Click on Actions and select Stop Temporarily (this will start up again in 7 days)
+- To delete forever, click "delete"
+
 
 ## DBeaver
 - Click on Database -> New Database connection

@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS person;
+
 
 -- make a person table to store people's jobs, occupation, salary
 create table person (id serial, name varchar(50), occupation varchar(50), salary integer);
@@ -97,6 +99,52 @@ select occupation, count(salary) from person group by occupation;
 
 -- scalar functions which operate on a single value:
 select upper(name) as upper_name, lower(name) as lower_name, length(name) as length_name from person order by length_name ;
+
+-- Set operations operate on the results of 2 queries
+-- UNION - takes results from both queries:
+-- this query is equivalent to select * from person where occupation = 'wizard' or salary > 500;
+-- The important note about set operations is that they operate on the entire result of a query
+-- so not every set operation will have a corresponding "simple solution" like that
+select * from person where occupation = 'wizard'
+union
+select * from person where salary > 500;
+
+-- UNION ALL - takes results from both queries but includes duplicates:
+-- we will see duplicates of records who exist both in results
+select * from person where occupation = 'wizard'
+union all
+select * from person where salary > 500;
+
+-- INTERSECT - records that appear in both results
+select * from person where occupation = 'wizard'
+intersect 
+select * from person where salary > 500;
+
+-- EXCEPT - takes results from the first set but not the second
+-- Take every wizzard except those wizards who have salary greater than 500
+select * from person where occupation = 'wizard'
+except
+select * from person where salary > 500;
+
+
+-- sub-query
+select avg(salary) from person;
+-- use the average salary as a sub-query to only get person records whose salaries are
+-- above that average:
+select * from person where salary > (select avg(salary) from person);
+
+-- take the max id and 1 to it
+insert into person values((select max(id) from person) + 1, 'Hermione','witch', 3000, '1970-01-01');
+
+select * from person;
+
+-- Views:
+drop view rich_wizards;
+create view rich_wizards as select * from person where occupation = 'wizard' and salary > 500;
+
+select * from rich_wizards ;
+
+
 
 
 
