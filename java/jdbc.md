@@ -25,3 +25,14 @@
 - We set up an interface and class implementation whose sole responsibility is interacting with database
     - CRUD methods (Create, Read, Update, Delete)
     - We don't worry about logic, reading from command line, HTTP REST stuff
+
+### We want to hide the url, password, username, etc.
+- In IntelliJ, we create a resources folder
+    - Right-Click main, select new -> directory
+    - Click on "resources"
+    - In this folder, we'll create a file called DbConfig.properties
+```
+url=jdbc:postgresql://db-3-6.cmm7dyyeb3rr.us-east-1.rds.amazonaws.com/postgres
+username=postgres
+password=password
+```
