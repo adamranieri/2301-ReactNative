@@ -18,6 +18,16 @@ https://raw.githubusercontent.com/lerocha/chinook-database/master/ChinookDatabas
     - Update Aaron Mitchell in Customer table to Robert Walter
     - Update name of artist in the Artist table “Creedence Clearwater Revival” to “CCR”
 
+3/6/2023:
+- Joins
+    - Create an inner join that joins customers and orders and specifies the name of the customer and the invoiceId
+    - Create an outer join that joins the customer and invoice table, specifying the CustomerId, firstname, lastname, invoiceId, and total.
+    - Create a right join that joins album and artist specifying artist name and title.
+    - Create a cross join that joins album and artist and sorts by artist name in ascending order.
+    - Perform a self-join on the employee table, joining on the reportsto column.
+- Set Operators
+    - Use a unionall to create a table that has the name of all employees and customers
+
 ## Submission
 - Copy + Paste the SQL code into DBeaver and run it to populate your database
 - Write the queries to fulfill the questions

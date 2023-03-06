@@ -92,6 +92,14 @@
         - TRUNCATE - removes data from table
             - wipes the data from a table but keeps the table
     - ```CREATE TABLE pets (name VARCHAR(50), age INTEGER);```
+    - Constraints
+        - Primary Key - non-null, unique
+        - Foreign Key - reference another table and ensure that the referenced value is valid, not null
+        - Unique - we can make a column unique without the non-null
+        - Not Null - we can require a column to have non-null values
+        - Check - checks a given value before it is inserted
+    - Default - set a default value for a given column
+        - if we don't provide a value, then the default value will be used
 - DML - Data Manipulation Language - updating the records of the table
     - INSERT - inserts a new record to the table
     - UPDATE - updates a pre-existing record(s)
@@ -100,7 +108,31 @@
     - Commands:
         - SELECT - selectes/reads data from a given table
 - TCL - Transaction Control Language
+    - Transaction - a series of commands (usually DML)
+        - Inserts, updates, deletes
+    - TCL gives us control over how multi-line transactions affect the database
+    - Commands:
+        - Begin - begins/starts a transaction
+        - Commit - once we've executed our commands, commit actually persists those changes to the database
+        - Rollback - go back to the beginning of the transaction, undo all the changes we made during that transaction
 - DCL - Data Control Language
+    - Controls who is allowed to do what on our data
+    - Commands
+        - Grant - give permissions to a user to operate on a particular table
+        - Revoke - revokes/removes those permissions
+
+## Transaction Requirements
+- ACID Acronym
+- Atomicity - we can't break a transaction down, all or nothing
+    - either all commands go through or none of them do
+    - ex: transferring money, we wouldn't want one person to lose/gain money without the change being reflected in the other account
+- Consistency - when we write a transaction, we want the database to be affected in a consistent/expected way
+    - ex: If I transfer money to someone, I want to have x less dollars and my friend to have x more dollars
+- Isolation - each transaction should happen independently of one another
+    - we wouldn't want 2 transactions to interfere (Ex: if I was depositing money to my friend's account at the same time as my paycheck being deposited to my account, I wouldn't want those to affect each other)
+- Durability - if something catastrophic happens, database down, connection fails, make sure transaction is persisted and ensure that the database remains in tact
+    - ex: if the database server went down, I wouldn't want to lose money, bank wouldn't want me to gain money
+
 
 ## Data Types
 - INTEGER - like an int in Java, store whole numbers
@@ -164,6 +196,8 @@
 - 6. Self Join
     - Joining a table with itself
     - ```select pet1.name as pet1_name, pet2.name as pet2_name from pet pet1 inner join pet pet2 on pet1.species = pet2.species and pet1.id != pet2.id;```
+![Different Types of Joins](https://dq-blog-files.s3.amazonaws.com/joins-tutorial/join_venn_diagram.svg)
+
 
 ### Set Operations
 - Set operations operate on the results of 2 queries
@@ -180,5 +214,3 @@
 - store the results of a query
 
 
-
-![Different Types of Joins](https://dq-blog-files.s3.amazonaws.com/joins-tutorial/join_venn_diagram.svg)
