@@ -43,5 +43,6 @@ select * from person cross join pet order by person.name;
 -- Self Join
 -- join a table with itself
 -- getting all pairs of pets where the species match
+-- pet1 and pet2 are aliases of the same table so we can use them as if they're 2 separate tables
 select pet1.name as pet1_name, pet2.name as pet2_name from pet pet1 inner join pet pet2 on pet1.species = pet2.species and pet1.id != pet2.id;
 

@@ -115,6 +115,7 @@
         - Begin - begins/starts a transaction
         - Commit - once we've executed our commands, commit actually persists those changes to the database
         - Rollback - go back to the beginning of the transaction, undo all the changes we made during that transaction
+    - [More on Transactions](https://4js.com/online_documentation/fjs-fgl-3.00.05-manual-html/c_fgl_transactions_002.html#:~:text=A%20database%20transaction%20delimits%20a,canceled%20as%20a%20unique%20operation.&text=The%20database%20server%20is%20in%20charge%20of%20data%20concurrency%20and%20data%20consistency%20.)
 - DCL - Data Control Language
     - Controls who is allowed to do what on our data
     - Commands
