@@ -4,6 +4,8 @@ import org.example.entity.Pet;
 import org.example.util.ConnectionFactory;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PetDaoImpl implements PetDao{
 
@@ -35,7 +37,12 @@ public class PetDaoImpl implements PetDao{
             System.out.println(preparedStatement);
 
             // this method actually executes the statement (we'll use the same method for update and delete)
-            preparedStatement.executeUpdate();
+            int count = preparedStatement.executeUpdate();
+
+            // make sure we are updating exactly 1 row:
+            if(count != 1) {
+                return null;
+            }
 
             // this method returns the generated id assuming we passed in the flag earlier:
             // returns a result set which contain a pointer to the data that we want:
@@ -59,5 +66,137 @@ public class PetDaoImpl implements PetDao{
         // insert to database
 
         return pet;
+    }
+
+    @Override
+    public Pet getById(int id) {
+        String sql = "select * from pet where id = ?;";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            // injecting the id that we pass into the ? slot in our SQL command:
+            preparedStatement.setInt(1, id);
+
+            // result set:
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            // use an if statement to detect if there even is a pet
+            // if true, it also should increment the pointer to what we want (should be the pet object)
+            if(resultSet.next()) {
+                // if we are in this code block, it means we have a pet:
+                // use the .getInt, .getString and pass in the columns to get the values:
+                int idDb = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                String species = resultSet.getString("species");
+                String food = resultSet.getString("food");
+
+                // using the fields from the query, we can create a pet object
+                Pet pet = new Pet(idDb, name, species, food);
+
+                if(id != idDb) {
+                    System.out.println("Ids do not match");
+                    return null;
+                }
+                return pet;
+            }
+
+
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public List<Pet> getAll() {
+        String sql = "select * from pet;";
+
+        // create an empty list to store all the pets that we want to return:
+        List<Pet> pets = new ArrayList<>();
+
+        try {
+            // Don't need a prepared statement, because there are no values to inject:
+            Statement statement = connection.createStatement();
+
+            // pass in the sql string here:
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            // Instead of an if, we have a while loop because there could be many pets:
+            // This loop will keep iterating until we run out of pets:
+            while(resultSet.next()) {
+                int idDb = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                String species = resultSet.getString("species");
+                String food = resultSet.getString("food");
+
+                // using the fields from the query, we can create a pet object
+                Pet pet = new Pet(idDb, name, species, food);
+
+                pets.add(pet);
+
+                // move on to the next pet (this will happen because we are in a loop)
+            }
+
+        } catch(SQLException e) {
+            e.printStackTrace();
+            System.out.println("Something went wrong when querying for all pets");
+        }
+        // return the list of pets
+        // it could be empty
+        return pets;
+    }
+
+    @Override
+    public Pet update(Pet pet) {
+        String sql = "update pet set name = ?, species = ?, food = ? where id = ?;";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, pet.getName());
+            preparedStatement.setString(2, pet.getSpecies());
+            preparedStatement.setString(3, pet.getFood());
+            preparedStatement.setInt(4, pet.getId());
+            System.out.println(preparedStatement);
+
+            // count should store how many rows are affected
+            int count = preparedStatement.executeUpdate();
+
+            // if count is 1, that means row should be updated:
+            if(count == 1) {
+                return pet;
+            }
+            else if (count == 0) {
+                // nothing was updated
+                return null;
+            }
+            else {
+                System.out.println("More than 1 row was updated... how is this possible?");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public boolean delete(int id) {
+        String sql = "delete from pet where id = ?;";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            int count = preparedStatement.executeUpdate();
+            // deletion successful:
+            if(count == 1) {
+                return true;
+            }
+            // this id didn't exist:
+            else {
+                return false;
+            }
+
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

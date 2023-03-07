@@ -1,5 +1,8 @@
 ## Normalization
 - The process of minimizing redundancy, organizing, and maintaining the integrity of a database
+    - But can also make querying more difficult
+        - Normalized when write-heavy
+        - Denormalized when read-heavy
 - There are different "Normal Forms" which indicate how normalized the database is
 - Each form builds on the last
     - DBs in 3NF are also in 1NF, 2NF, etc.
@@ -12,6 +15,8 @@
 
 ### First Normal Form
 - A single cell in the database must only hold one value
+    - atomic - can't break it down into any more meaningful data
+    - ex: storing an array is non-atomic because it could be broken down
 - All databases we have created are in 1NF because SQL does not allow you to have many values in a single cell
 
 - This table is in 1NF because there are not multi-valued cells:
@@ -28,8 +33,9 @@
 
 ### Second Normal Form
 - Must be 1NF
-- No Partial Dependency
+- No Functional Dependencies
     - In other words, all non-key attributes are fully dependent on a primary key
+    - No data that can be calculated using the primary key
 - In the above table, we see things like class ID and Class Name which violate 2NF
     - This is because, for any student id, we could get multiple classes
 - To fix this, we can make 2 tables
@@ -67,6 +73,7 @@
 - 3NF requires 2NF to be true as well as the elimintation of transitive partial dependencies
 - A transitive partial dependency is defined as: 
     - a non-prime attribute (an attribute that is not part of the table's primary key) is dependent on another non-prime attribute
+    - The data in the column cannot be found in another table
 - Here, we have a transitive dependency because the House field "depends on" the House Code field.
 - We can fix this by making a new table that maps House Code to House, and getting rid of the House field on the students table
 
