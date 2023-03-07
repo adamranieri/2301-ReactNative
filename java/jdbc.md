@@ -100,3 +100,8 @@ password=password
         - Return the appropriate values (Pet, List of Pets, etc.)
 7. In App.java, instantiate the Dao object and call the insert method on a dummy Pet object
     - Tomorrow, we will add a Service layer and a Command Line layer to make the project more scalable
+8. Add some service methods
+    - CRUD operations that call the DAO methods
+### Future
+9. REST API
+    - Should only call service methods

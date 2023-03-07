@@ -2,7 +2,9 @@ package org.example;
 
 import org.example.data.PetDao;
 import org.example.data.PetDaoImpl;
+import org.example.data.PetDaoTempImpl;
 import org.example.entity.Pet;
+import org.example.service.PetService;
 
 import java.util.Scanner;
 
@@ -41,5 +43,23 @@ public class App
 
         // SQL injection attacks, inserting malicious statements into our SQL commands:
 //        petDao.insert(new Pet("Ashes from Java", "Cat from Java", "tuna from Java'); delete * from pet;"));
+
+        // The way our service is set up, we can instantiate using whatever implementation of the DAO we want:
+        PetService petService1 = new PetService(new PetDaoImpl());
+        PetService petService2 = new PetService(new PetDaoTempImpl());
+
+        String result = petService1.insert(new Pet("Ashes", "cat", "tuna"));
+        System.out.println(result);
+
+        System.out.println("Number of total pets: " + petService1.getNumberOfPets());
+
+        System.out.println(petService1.updateName(23, "Geodude"));
+        System.out.println(petService1.updateName(10000, "Name doesn't matter"));
+
+        System.out.println(petService1.deletePet(25));
+        System.out.println(petService1.deletePet(25));
+
+
+
     }
 }
