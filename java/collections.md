@@ -47,3 +47,30 @@
 - comparator is a class that is separate from the class which we want to compare
     - ex: if we have a movie class, we would then need a separate comparator class
 - compare method
+
+
+
+### Map
+- Key and Values
+- Key maps to a particular value
+- Keys are unique, but values don't have to be unique
+- These are not part of the collections hierarchy
+- Implementing Classes:
+    - HashMap
+
+#### Internal Structure of a Map
+- An array where the indices are calculated using the hash function of the key
+- The value in that array is just that value
+- Look up time is super quick because hashCode is a constant time function
+    - it's not dependent on the number of items in the map
+    - You just call the hash code and access the array at that index
+- This is opposed to having to loop through the entire collection to find what you want
+- Let's say I want to insert key: "NYC", value: 9
+    - The index would be calculated using the hash code of "NYC" (let's say it's index 4)
+    - So the underlying array would use that index and put the value of 9 in that spot
+    ```[_, _, _, _, 9, _, _, _];```
+
+#### Duplicate Hash Code
+- Let's say we add another key that has the same hash code
+- To handle collision, might go to next stop
+- Must also store key then to ensure that we are getting the right value

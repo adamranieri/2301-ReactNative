@@ -206,6 +206,12 @@ class Animal {
     - This block of code will run no matter what
     - whether or not the exception is thrown
 
+### Making our own exceptions:
+- We can create a custom exception class (OddException) and extend the Exception class
+    - We can set up a constructor that calls the constructor of the exception class
+- We want to make our own custom exceptions if the default ones don't satisfy the specific type of exception we want to throw
+    - ex: for our pet project, we could create a custom exception PetAlreadyAdopted
+
 #### Throws Keyword
 - we declare it in the method declaration and we specify which exception(s) could be thrown by this method
 - Eliminate the need for a try-catch
@@ -224,3 +230,15 @@ class Animal {
 - double vs Double
 - boolean vs Boolean
 - long vs Long
+
+## Generics
+- When we write a class we might be using types that can be changed depending on our specific use case
+    - When we declare collections, we specify the type that we want to store using carrot braces
+    - These are called Generics
+    - ```List<String> names = ```
+        - We're declaring a list that stores strings
+
+## Debugging
+- In IntelliJ, we can add break points by clicking on the side of our IDE (we will see red dots appear)
+- Breakpoints let us stop the execution of our program to inspect values
+- If we click on the debug button, we can cycle through different points in our program
