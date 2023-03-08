@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Luckily, when we get to Spring Boot, this configuration will be done for us -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Constructor based injection -->
+    <bean id = "helloWorld1" class = "com.revature.entity.HelloWorld" scope="prototype">
+        <!-- This should call the all-args constructor with the value in the 0th parameter of the constructor-->
+        <constructor-arg index="0" value="Hello Message"/>
+    </bean>
+
+    <!-- Property/Setter based injection: -->
+    <bean id = "helloWorld3" class = "com.revature.entity.HelloWorld">
+        <property name="message" value = "Property Injection Message"/>
+    </bean>
+
+    <bean id = "HelloWorld4" class = "com.revature.entity.HelloWorld">
+        <!-- Slightly different syntax when defining the property value -->
+        <property name = "message">
+            <value>New value nested</value>
+        </property>
+    </bean>
+
+    <bean id = "Pokemon1" class = "com.revature.entity.Pokemon">
+        <constructor-arg index = "0" value = "Pikachu"/>
+        <constructor-arg index = "1" value = "Pika"/>
+        <constructor-arg index = "2" value = "Electric"/>
+        <constructor-arg index = "3" value = "Mouse"/>
+        <constructor-arg index = "4" value = "20"/>
+    </bean>
+
+    <bean id = "Pokemon2" class = "com.revature.entity.Pokemon">
+        <property name="name" value = "Pooch"/>
+        <property name="species" value = "Poochyena"/>
+        <property name="type1" value = "Dark"/>
+        <property name="type2" value = "Dog"/>
+        <property name="level" value = "30"/>
+    </bean>
+
+    <!-- What if we have a object that we want to include ? -->
+    <bean id = "Trainer1" class = "com.revature.entity.Trainer">
+        <property name="name" value = "Ash Ketchum"/>
+        <property name="num_badges" value = "8"/>
+        <!-- For complex types, we reference other beans' ids:-->
+        <property name="starter" ref = "Pokemon1"/>
+    </bean>
+
+    <!-- Create an array -->
+    <bean id = "list1" class = "com.revature.entity.ListBean">
+        <property name="names">
+            <array value-type="java.lang.String">
+                <value>Luke</value>
+                <value>Han</value>
+                <value>Leia</value>
+                <value>Rey</value>
+            </array>
+        </property>
+    </bean>
+
+</beans>

@@ -43,7 +43,7 @@
     - all values in the table are unique
     - no null values
     - Good for identifying a particular record
-    - ```create table pets (id serial primary key);
+    - ```create table pets (id serial primary key);```
     - Distinction is that primary key is not the same as serial
         - serial allows for the auto-increment ability of the column
         - primary key ensures uniqueness and non-null
@@ -174,11 +174,13 @@
 - Delete - deletes the data from the table with more control if you include a where clause
     - truncate is the same as delete with no where clause
 
-## Joins
+## Querying
+
+### Joins
 - A way to combine the results from different tables in one query
     - useful if we have multiplicty relationships between tables
 
-### Different Types of Joins
+#### Different Types of Joins
 1. Inner Join - we take records from tables that have matches in both tables
 - ```select person.name, pet.name from person join pet on pet.owner_id = person.id```
 - Only display records with matches in both tables
@@ -212,6 +214,6 @@
 - ```select * from person where salary > (select avg(salary) from person);```
 
 ### Views
-- store the results of a query
+- Store the results of a query
 
 

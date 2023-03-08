@@ -11,12 +11,13 @@
 - A functional dependency (FD) is a relationship between two attributes, typically between the PK and other non-key attributes within a table. For any relation R, attribute Y is functionally dependent on attribute X (usually the PK), if for every valid instance of X, that value of X uniquely determines the value of Y
     - X -> Y
 - For example, a student id determines student name, age, birthday
-- But, a student id wouldn't determine class id (because student could be taking different classes)
+- But, a student id wouldn't determine class id (because student could be taking multiple classes)
 
 ### First Normal Form
 - A single cell in the database must only hold one value
     - atomic - can't break it down into any more meaningful data
     - ex: storing an array is non-atomic because it could be broken down
+    - We could argue storing date isn't atomic because it could be broken into month, day, year
 - All databases we have created are in 1NF because SQL does not allow you to have many values in a single cell
 
 - This table is in 1NF because there are not multi-valued cells:
@@ -35,12 +36,13 @@
 - Must be 1NF
 - No Functional Dependencies
     - In other words, all non-key attributes are fully dependent on a primary key
-    - No data that can be calculated using the primary key
+    - No data that can be calculated/determined using the primary key
 - In the above table, we see things like class ID and Class Name which violate 2NF
-    - This is because, for any student id, we could get multiple classes
+    - This is because class cannot be solely determined/calculated by the student's id
 - To fix this, we can make 2 tables
     - One that maps student id to class id
     - One that maps class id to class name
+- Furthermore, we could eliminate the age column because we have birthday. Age can always be calculated by using the current date
 
 #### Student to Course ID:
 | Student Id | Class ID |
@@ -61,20 +63,20 @@
 | 103      | Defense Against the Dark Arts |
 
 #### Updated Students Table:
-| Student ID | Student Name | Age | Birthday  | House Code | House      |
-|------------|--------------|-----|-----------|------------|------------|
-| 1          | Harry        | 15  | 07/31/1980               | G          | Gryffindor |
-| 2          | Ron          | 15  | 03/01/1980             | G          | Gryffindor |
-| 3          | Ginny        | 14  | 08/11/1981  | G          | Gryffindor |
-| 4          | Draco        | 15  | 06/05/1980           | S          | Slytherin  |
+| Student ID | Student Name |  Birthday  | House Code | House      |
+|------------|--------------|-----------|------------|------------|
+| 1          | Harry          | 07/31/1980               | G          | Gryffindor |
+| 2          | Ron            | 03/01/1980             | G          | Gryffindor |
+| 3          | Ginny          | 08/11/1981  | G          | Gryffindor |
+| 4          | Draco          | 06/05/1980           | S          | Slytherin  |
 
 ### Third Normal Form
 - Our database is looking better, but there is still some optimizing we can do
 - 3NF requires 2NF to be true as well as the elimintation of transitive partial dependencies
 - A transitive partial dependency is defined as: 
-    - a non-prime attribute (an attribute that is not part of the table's primary key) is dependent on another non-prime attribute
-    - The data in the column cannot be found in another table
-- Here, we have a transitive dependency because the House field "depends on" the House Code field.
+    - an attribute isn't directly dependent on the primary key
+    - It is dependent on another field, which is dependent on the primary key
+- Here, we have a transitive dependency because the House field is dependent on the House Code field which is then dependent on the student id
 - We can fix this by making a new table that maps House Code to House, and getting rid of the House field on the students table
 
 #### House Code to House
@@ -121,3 +123,7 @@ Now we see the tables should store the same information, but there is much less 
     - Every functional dependency has a left side which is a superkey of the table/relation
     - Specifically, this is true because each table has only one functional dependency (primary key uniquely identifies the other columns of the relation)
 
+### Final Notes
+- Again, keep in mind that normalization isn't always the best option. In our fully normalized database, the queries will be more complicated to write and take more time query for information. The benefit is that there is less storage being taken up. So keep in mind the following when deciding to normalize a database:
+    - Is the database read-heavy or write-heavy?
+    - Is time or storage efficiency being prioritzed?
