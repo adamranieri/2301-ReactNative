@@ -22,11 +22,19 @@
 - @RequestMapping - sets up a mapping for a method
     - we pass in the value and method type
     - We can also apply this to a class to give a general prefix to every method in that class
-- @GetMapping 
-    - shortcut for RequestMapping and Get method type
+- @GetMapping , @PostMapping, @PutMapping, @DeleteMapping
+    - shortcut for RequestMapping and specifying method type
 - @PathVariable - lets us parse variables from any path variables in the request
     - used for ids
 - @RequestBody - whatever parameter we apply this to should get the values from the body of the request
 - @RequestParam - lets us parse request parameters from the endpoint:
     - Don't want to use this for passwords, sensitive data
     - We don't want to use this for complex objects, better to use in body where we can write it in JSON
+
+
+### Status Codes
+- 100s - informational
+- 200s - success
+- 300s - redirect
+- 400s - client side error
+- 500s - server side error

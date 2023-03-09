@@ -20,3 +20,4 @@ delete from pet where id = 9;
 
 
 
+CREATE database pets;
