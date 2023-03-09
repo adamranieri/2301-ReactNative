@@ -44,4 +44,14 @@ public class PetServiceDummyImpl implements PetService{
         if(id == 1) return true;
         else return false;
     }
+
+    @Override
+    public List<Pet> getAll(String flag) {
+        return null;
+    }
+
+    @Override
+    public List<Pet> findByName(String name) {
+        return null;
+    }
 }

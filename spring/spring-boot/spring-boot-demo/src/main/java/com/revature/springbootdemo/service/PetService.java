@@ -11,4 +11,8 @@ public interface PetService {
     Pet update(Pet pet);
     boolean delete(Long id);
 
+    List<Pet> getAll(String flag);
+
+    List<Pet> findByName(String name);
+
 }

@@ -31,17 +31,34 @@ public class PetController {
     // configuring this method to run when we send a get request to the end point /pets
     // http://localhost:8080/pets => [list of pets]
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public List<Pet> getAll() {
-        return petService.getAll();
+    public List<Pet> getAll(@RequestParam(required = false, value = "flag") String flag) {
+        // if we don't pass in a request parameter flag, we should just get all pets
+        if(flag == null) return petService.getAll();
+        // Otherwise, call the overloaded method:
+        else return petService.getAll(flag);
     }
 
     // @GetMapping is basically a shortcut for @RequestMapping method = RequestMethod.Get):
     // REST rule: for specific pet, we just add the id as a path variable instead of having a totally
     //separate endpoint:
-    @GetMapping("/{petId}")
-    // just make sure that the value passed into @PathVariable matches what we have in the request
-    public Pet getById(@PathVariable("petId") Long id) {
-        return petService.getById(id);
+//    @GetMapping("/{petId}")
+//    // just make sure that the value passed into @PathVariable matches what we have in the request
+//    public Pet getById(@PathVariable("petId") Long id) {
+//        return petService.getById(id);
+//    }
+//
+//    @GetMapping("/{petName}")
+//    public List<Pet> getByName(@PathVariable("petName") String name) {
+//        return petService.findByName(name);
+//    }
+    @GetMapping("/{petIdentifier}")
+    public Pet getByIdOrName(@PathVariable("petIdentifier") String identifier) {
+        try {
+            Long id = Long.parseLong(identifier);
+            return petService.getById(id);
+        } catch(Exception e) {
+            return petService.findByName(identifier).get(0);
+        }
     }
 
     @PutMapping()
