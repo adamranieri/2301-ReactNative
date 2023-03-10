@@ -4,5 +4,5 @@
 - Next 2 weeks to work on that
 ## QC
 - Next Wednesday (3/15) morning Java SQL
-- SQL cheat sheet coming soon
-- Spring cheat sheet soon too but not on QC
+- SQL study guide coming soon
+- Spring  study guidesoon too but not on QC
