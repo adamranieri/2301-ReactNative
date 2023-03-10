@@ -14,3 +14,14 @@ export async function getPets():Promise<Pet[]> {
     return response;
 
 }
+
+export async function optionsTest() {
+    const response = await fetch('http://127.0.0.1:8080', {
+    method: "OPTIONS", // *GET, POST, PUT, DELETE, etc.
+    headers: {
+      "Content-Type": "application/json",
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+  });
+  console.log(response);
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { getPets } from './requests';
+import { getPets, optionsTest } from './requests';
 import {useState} from 'react';
 import { Pet } from './requests';
 
@@ -20,6 +20,7 @@ function App() {
     <div className="App">
 
         <button onClick = {buttonHandler}>Get Pets</button>
+        <button onClick = {optionsTest}>Options</button>
 
         {pets.map((pet:Pet) => (
             <div>
