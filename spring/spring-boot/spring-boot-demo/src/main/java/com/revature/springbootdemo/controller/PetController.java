@@ -14,6 +14,7 @@ import java.util.List;
 @RestController
 // every single method in this class should be prefixed with /pets
 @RequestMapping("/pets")
+@CrossOrigin(origins = "http://localhost:3000")
 public class PetController {
 
     // automatically inject the bean into this field:
@@ -32,6 +33,7 @@ public class PetController {
     // http://localhost:8080/pets => [list of pets]
     @RequestMapping(value = "", method = RequestMethod.GET)
     public List<Pet> getAll(@RequestParam(required = false, value = "flag") String flag) {
+        System.out.println("Getting all pets");
         // if we don't pass in a request parameter flag, we should just get all pets
         if(flag == null) return petService.getAll();
         // Otherwise, call the overloaded method:

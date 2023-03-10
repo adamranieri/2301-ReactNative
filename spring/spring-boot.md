@@ -24,6 +24,30 @@
     - We will pick more later like Spring Data
     - If we click on "Explore" we can view a preview of the project (including the pom.xml) before we download it
 
+### Spring Boot Dev Tools
+- Just include Dev Tools and run the application
+- Every time you edit one of the files, the app will restart
+```
+<dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-devtools</artifactId>
+      <scope>runtime</scope>
+      <optional>true</optional>
+    </dependency>
+```
+
+<!--Spring Boot Devtools makes our application restart every time we make a change to our code:-->
+-  In intelliJ, we have to enable the auto build
+- Ctrl + alt + S, we should see settings -> Build, Execution, Deployment -> Compiler -> Make sure "Build Project Automatically" is checked -
+- Can also go to File -> settings
+- Now, when we change code in our project, it will re-run automatically
+		
+
+### Spring Boot Actuator
+- Expose an endpoint that gives diagnostic information about the app
+- ex, we can view the application health: http://localhost:8080/actuator/health
+- https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html
+
 ### Enterprise Applications
 #### Set Up
 - Setting up package structure
