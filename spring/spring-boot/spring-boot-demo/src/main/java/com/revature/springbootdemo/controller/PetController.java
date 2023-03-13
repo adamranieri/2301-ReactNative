@@ -2,6 +2,8 @@ package com.revature.springbootdemo.controller;
 
 import com.revature.springbootdemo.entity.Pet;
 import com.revature.springbootdemo.service.PetService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,10 +23,14 @@ public class PetController {
     @Autowired
     PetService petService;
 
+    Logger logger1 = LoggerFactory.getLogger(PetController.class);
+
 
     // we do a post mapping for inserting new data
     @PostMapping()
     public Pet insert(@RequestBody Pet pet) {
+        // initialize Logger:
+        logger1.info("Inserting; " + pet.toString());
         return petService.insert(pet);
     }
 

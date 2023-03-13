@@ -19,8 +19,8 @@
     - chmod 400 rory-key-3-13-23.pem
 
 ### Running a Web Server
-- sudo yum install -y httpd
-- sudo systemctl start httpd
+- sudo yum install -y httpd - install web server
+- sudo systemctl start httpd - start the web server
 - We won't be able to connect until we configure our security group to allow http connections
     - Security -> security group -> edit inbound rules and add a rule that allows HTTP (port 80)
 - Copy the public IP address of the instance and put that in your search bar
@@ -28,4 +28,4 @@
 ### Exercise:
 - Get an EC2 instance up and running
 - Install a simple web server 
-- Ensure that it's accessible and send me the link to make sure I can access it
+- Ensure that it's accessible by editing the security group and send me the lpublic address to make sure I can access it

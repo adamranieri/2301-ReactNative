@@ -20,11 +20,11 @@ public class PetServiceTest {
     @Autowired PetService petService;
 
     @Test
-    public void contextLoads() {
+    public void testInsert() {
         Pet pet = new Pet("Ashes", "Cat", "Tuna");
         Pet updatedPet = new Pet(2l, "Ashes", "Cat", "Tuna");
 
-        // mock the save method of the repository:
+        // mock the save method of the repository, so the repository doesn't actually access the database
         Mockito.when(petRepository.save(pet)).thenReturn(updatedPet);
 
         // ensure that the service returns the updated pet:
