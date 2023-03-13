@@ -15,6 +15,10 @@ function App() {
         // when we click the button, set the state using the results of the request:
         setPets(await getPets());
     }
+
+    // function printSomething() {
+    //     console.log("Hello World");
+    // }
     
   return (
     <div className="App">

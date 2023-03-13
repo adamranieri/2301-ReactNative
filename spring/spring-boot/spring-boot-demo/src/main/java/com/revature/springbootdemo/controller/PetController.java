@@ -3,7 +3,6 @@ package com.revature.springbootdemo.controller;
 import com.revature.springbootdemo.entity.Pet;
 import com.revature.springbootdemo.service.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

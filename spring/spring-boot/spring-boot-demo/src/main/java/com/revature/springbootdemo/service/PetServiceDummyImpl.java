@@ -1,7 +1,6 @@
 package com.revature.springbootdemo.service;
 
 import com.revature.springbootdemo.entity.Pet;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
