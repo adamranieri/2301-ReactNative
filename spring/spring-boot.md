@@ -63,3 +63,10 @@
 - 
 
 
+### Properties Files
+- For different situations, we might have different configurations and properties
+    - Example: We have a production RDS and an H2 testing database
+    - Instead of having these both in application.properties and manually commenting them out, we can split them up into 2 or more different files
+    - Just make sure they still end with .properties
+- To pick between them, we can set this annotation:
+    - ```@PropertySource("classpath:test.properties")```

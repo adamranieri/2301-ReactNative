@@ -3,11 +3,11 @@
     - In the case of project 2, it's a breakout room of your peers
 - Bring up the following points:
     - What did you work since the last stand-up meeting
-        - Setting up Repo
-        - Finished a feature and submitted a pull request
+        - ex: Setting up Repo
+        - ex: Finished a feature and submitted a pull request
     - What technical or non-technical blockers are you facing?
-        - Someone's work isn't finished yet so you can't test your feature fully
-        - Having trouble getting a function to work, etc.
+        - ex: Someone's work isn't finished yet so you can't test your feature fully
+        - ex: Having trouble getting a function to work, etc.
     - What do I want to work on next
-        - Work with Rick to get the next feature done
-        - Finish up getting the pipeline set up
+        - ex: Work with Rick to get the next feature done
+        - ex: Finish up getting the pipeline set up

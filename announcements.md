@@ -1,8 +1,8 @@
-## Spring Boot Exercise
-- Crude mocks up coming soon
+## S3 Exercise
 ## Project 2
 - Next 2 weeks to work on that
 ## QC
-- Next Wednesday (3/15) morning Java SQL
-- SQL study guide coming soon
-- Spring  study guidesoon too but not on QC
+- Tomorrow (3/15) morning Java/SQL
+- Study Guides are in Teams channel:
+- https://github.com/adamranieri/2301-ReactNative/blob/main/java/java-study-guide.md
+- https://github.com/adamranieri/2301-ReactNative/blob/main/SQL/sql_study_guide.md

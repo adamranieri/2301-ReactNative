@@ -23,6 +23,7 @@ public class PetController {
     @Autowired
     PetService petService;
 
+    // We use the Logger Factory to get a Logger for a particular class
     Logger logger1 = LoggerFactory.getLogger(PetController.class);
 
 
@@ -31,6 +32,8 @@ public class PetController {
     public Pet insert(@RequestBody Pet pet) {
         // initialize Logger:
         logger1.info("Inserting; " + pet.toString());
+        logger1.warn("This is a warning");
+        logger1.error("This is an error");
         return petService.insert(pet);
     }
 
