@@ -1,5 +1,6 @@
 package com.revature.springbootdemo.controller;
 
+import com.revature.springbootdemo.dto.LoginRequest;
 import com.revature.springbootdemo.entity.Pet;
 import com.revature.springbootdemo.service.PetService;
 import org.slf4j.Logger;
@@ -79,5 +80,14 @@ public class PetController {
     @DeleteMapping("/{id}")
     public boolean delete(@PathVariable("id") Long id) {
         return petService.delete(id);
+    }
+
+    @RequestMapping(method = RequestMethod.PATCH)
+    // use our DTO to store only the username and password
+    public Pet login(@RequestBody LoginRequest loginRequest) {
+
+        // call login service here:
+
+        return null;
     }
 }
