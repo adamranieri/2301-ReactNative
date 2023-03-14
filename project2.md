@@ -104,7 +104,7 @@ You will demo the application in front of the batch. You will be sending a link 
 | /meetings                        | GET    | Returns all meetings           | 200                              |
 | /meetings/{id}                   | GET    | Gets a meeting by ID           | 200, 404                         |
 | /meetings                        | POST   | Creates a new meeting          | 201                              |
-| /meetings/{id}                   | PUT    | Replaces a complaint           | 200, 404                         |
+| /meetings/{id}                   | PUT    | Replaces a meeting           | 200, 404                         |
 | /meetings/{id}                   | DELETE | Deletes a meeting              | 404                              |
 
 ### ERD
