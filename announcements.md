@@ -1,8 +1,15 @@
-## S3 Exercise
-## Project 2
-- Next 2 weeks to work on that
-## QC
-- Tomorrow (3/15) morning Java/SQL
-- Study Guides are in Teams channel:
-- https://github.com/adamranieri/2301-ReactNative/blob/main/java/java-study-guide.md
-- https://github.com/adamranieri/2301-ReactNative/blob/main/SQL/sql_study_guide.md
+## Portfolios
+- Make sure to resubmit once you make corrections
+- Most of you are all done so congrats!
+
+## Competency Assessment
+- 60 questions, 2 hours to work on
+
+## Mock Interviews
+- Tomorrow (3/17) in the afternoon
+- Java/SQL
+
+## Things to Work On
+- Study
+- Work on projects
+- Eduflow
