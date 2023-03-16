@@ -96,6 +96,16 @@
     - You should see a whale saying boo or whatever message you passed in
     - We can check with ls to see that nothing was actually created in our directory because these Docker containers are isolated
 
+### Installation
+- Install Docker Desktop
+    - https://www.docker.com/products/docker-desktop/
+    - Should give you Docker Desktop and CLI
+- Make sure to set up a restore point
+    - Look up Create a Restore Point
+    - Click on Create
+        - Give it a name like "Before_Docker_Install"
+    - This should create a snapshot of our computer so if it crashes, we can easily get back
+
 ### Demos
 
 #### Basic Java Container
@@ -131,3 +141,48 @@ CMD ["java", "HiWorld"]
 - Image took a few minutes to build at first
     - But if we change the file and re-run it should know that only 1 layer was changed so it won't re-run the entire build
     - The layers can use the cache of the previous run so it knows not to re-run the same thing
+
+
+#### Spring Boot App
+```Dockerfile
+# Build State, using Maven as our base image:
+FROM maven:3.6.0-jdk-11-slim AS build
+# Copy the src folder from host machine and move it into the container:
+COPY src /home/app/src
+# Copy the pom file from host machine and move it into the container:
+COPY pom.xml /home/app
+
+# Package the maven app, by specifying where the pom.xml is
+RUN mvn -f /home/app/pom.xml clean package
+
+# Once we package the Maven app, we need to execute it using Java:
+FROM openjdk:11-jre-slim
+# Now that we've packaged the application, it sets in the target folder as a JAR file
+# We can inspect the pom.xml to deduce what the name of the jar file is (artifact-id and version)
+# Copying the jar file to a new location
+COPY --from=build /home/app/target/spring-boot-demo-0.0.1-SNAPSHOT.jar /usr/local/lib/demo.jar
+
+# Expose the port from the container, so we can access from our host machine
+EXPOSE 8080
+
+# Final command, execute the jar file, using the new location that we moved it to
+ENTRYPOINT ["java", "-jar", "/usr/local/lib/demo.jar"]
+```
+
+##### Running the Container:
+- docker run --name spring-container spring-image
+    - The issue here is that the container doesn't have access to environment variables
+- docker run --name spring-container -e RDS_URL=jdbc_url -e RDS_USERNAME = postgres -e RDS_PASSWORD=password spring-image
+    - Manually pass in the environment variables
+- docker run --name spring-container -e RDS_URL -e RDS_USERNAME -e RDS_PASSWORD spring-image
+    - If we just specify key and no value, it will use our host environment variables:
+- docker run --name spring-container -p 8080:8080 -e RDS_URL -e RDS_USERNAME -e RDS_PASSWORD spring-image
+    - Map the container's port 8080 to our host machine's 8080 so we can access localhost:8080 on our host machine
+
+
+##### Things to Note
+- Database?
+    - Since we're hosting it on RDS, it shouldn't be an issue
+- Environment Variables
+    - Because Docker create its own isolated environments, we won't automatically have access to our host machine's environment variables
+- 
