@@ -31,6 +31,11 @@
 - Horizontal Scaling - adding more instances to handle the load
 - Vertical Scaling - taking an instance and scaling it up by improving its ability such as CPU/memory
 
+### Elastic Block Store
+- Storage that we can attach to an EC2
+- By default the default EBS that comes with an EC2 is deleted by defaulted when the EC2 is shut down
+- But we can add more EBS and specify that we want them to persist when the instance is shut down
+
 ### Exercise:
 - Get an EC2 instance up and running
 - Install a simple web server 

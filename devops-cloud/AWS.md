@@ -132,6 +132,8 @@
 - Elastic Container Service
 - Container Orchestration Service
 - Helps us deploy, manage, and scale containerized apps
+- Cluster - Logical grouping of tasks
+- Task - the operations we want to run
 
 ## Elastic Load Balancing
 - Distributing requests across different targets

@@ -6,22 +6,27 @@
 - There are different "Normal Forms" which indicate how normalized the database is
 - Each form builds on the last
     - DBs in 3NF are also in 1NF, 2NF, etc.
-
+- The further up we go, the more "normalized" the database is
 ### Functional Dependency
 - A functional dependency (FD) is a relationship between two attributes, typically between the PK and other non-key attributes within a table. For any relation R, attribute Y is functionally dependent on attribute X (usually the PK), if for every valid instance of X, that value of X uniquely determines the value of Y
     - X -> Y
 - For example, a student id determines student name, age, birthday
+    - If we have student id 1, we know what their name is, what their age is, and what their birthday is
+    - It couldn't be the case that an id of 1 could give us 2 or more different names
+    - On the other hand, if we have a student name, (a common name like Will Smith), it could map to different ids, birthdays, etc.
 - But, a student id wouldn't determine class id (because student could be taking multiple classes)
+    - One student could be taking multiple classes
 
 ### First Normal Form
 - A single cell in the database must only hold one value
     - atomic - can't break it down into any more meaningful data
-    - ex: storing an array is non-atomic because it could be broken down
+    - ex: storing an array is non-atomic because it could be broken down into its individual elements
     - We could argue storing date isn't atomic because it could be broken into month, day, year
 - All databases we have created are in 1NF because SQL does not allow you to have many values in a single cell
 
 - This table is in 1NF because there are not multi-valued cells:
 - It does include some obvious reduncancies which will be fixed in future forms
+- In this table, we could use a composite key (student id and class id)
 #### Students
 | Student ID | Student Name | Age | Birthday   | Class ID | Class Name                    | House Code | House      |
 |------------|--------------|-----|------------|----------|-------------------------------|------------|------------|
@@ -118,6 +123,10 @@ Now we see the tables should store the same information, but there is much less 
 
 
 ### Boyce-Codd Normal Form
+- A superkey is a set of properties that include the key
+    - If key was studentId
+    - Superkeys: {studentId}, {studentId, studentName}
+- Must be in 3NF
 - A relation is in BCNF if, X is superkey for every functional dependency X->Y in given relation. 
 - This database is already in BCNF because for each table:
     - Every functional dependency has a left side which is a superkey of the table/relation

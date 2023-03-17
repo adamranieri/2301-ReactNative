@@ -75,6 +75,20 @@
 - Make sure the name is "Dockerfile"
     - no extensions
 
+### Docker Compose
+- We can create a file called docker-compose.yml
+- Normally used for defining a multi-container application
+- ex:
+    - One container that acts as the database
+    - A second container that acts as the server
+- If we have the correct context set, we can use docker compose up to compose the containerized application and send it that context
+    - ex: the ECS environment
+
+### Docker Volumes
+- Host and container are isolated
+- How do we store data long-term?
+    - RDS or some sort of web-hosted database that we connect to
+    - Docker Volumes - we can attach volumes to a container and store data that persists
 
 ### Docker Playground
 - https://labs.play-with-docker.com/
@@ -208,6 +222,7 @@ sudo docker run -p 8080:8080 --name spring -e RDS_URL=jdbc:postgresql://spring-d
 - ex: http://35.153.192.58:8080/pets
 - To clean up, just terminate the EC2 instance
 #### Running a Docker Container on ECS
+https://docs.docker.com/cloud/ecs-integration/
 1. Set up permissions on AWS
     - Because we'll be using many different servies and features of AWS, we need to ensure that we have the necessary permissions to achieve those
     - Make sure logged in as root user and go to IAM
@@ -310,3 +325,62 @@ sudo docker run -p 8080:8080 --name spring -e RDS_URL=jdbc:postgresql://spring-d
 - Enter the credentials downloaded in step 2
 - Pick a region
 - To use the context ```docker context use myecscontext```
+
+4. 
+- Create a file called docker-compose.yml
+- Docker compose is normally used for multi-container apps but we're here we're defining how the container should be created when it's pushed to ECS 
+```
+version: "3.8"
+
+services:
+  app:
+    image: roryeiffe/spring-image
+    env_file: ./.env
+    ports:
+      - 8080:8080
+    environment:
+      - RDS_URL:$RDS_URL
+      - RDS_USERNAME:$RDS_USERNAME
+      - RDS_PASSWORD:$RDS_PASSWORD
+```
+- Few things to note
+    - The image is hosted on dockerhub
+    - How to push a docker image:
+        - Make a Docker account
+        - Create a docker image on your local machine and make sure the name adheres to the following format:
+            - docker_user_name/image_name
+        - Login to Docker
+            - docker login
+        - Push it
+            - docker push docker_user_name/image_name
+5. Run docker compose up
+- Make sure we're using the ecs context
+- This will set up the cloud formation template
+- "A load balancer cannot be attached to multiple subnets in the same Availability Zone"
+    - Load Balancer - how we distribute requests to our application and delegate to different targets
+    - Availability Zone - Within a region, we have multiple availability zones which allow for redundancy and disaster recovery
+    - Subnets - Within an AZ, we have multiple subnets which are just a range of ip addresses
+    - The issue here is the Cloud Formation defaults to multiple AZ's, and we have to change the behavior
+- If we run ```docker compose convert```, we can see the CloudFormation template that is being used to create the application
+- If we look under Elastic Load Balancing, we see that it's using multiple subnets which is why we're getting that error
+- So, to fix that, we just want to update our compose yml file
+
+6. Inspect our resources
+- Shold have create an ECS cluster, a service, and a load balancer
+- If we go to the load balancer, we should find a DNS
+- ex: Navigate to pet-p-LoadB-TVZYQZ5L3Q0L-284bf23b730ff444.elb.us-east-1.amazonaws.com:8080/pets
+- At a surface level, this is the exact same as deploying on an EC2 instance
+    - But we have load balancing set up
+    - ECS is a managed service
+    - We can set up code pipeline
+    - Overview of ECS and benefits: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html
+- ![Load Balancer](https://d1.awsstatic.com/Digital%20Marketing/House/1up/products/elb/Product-Page-Diagram_Elastic-Load-Balancing_ALB_HIW%402x.cb3ce6cfd5dd549c99645ed51eef9e8be8a27aa3.png)
+7. Shutting Down and Clean Up
+- Instead of shutting down each resource individually, we can just run ```docker compose down``` to shut everything down
+- Delete our access key so it's no longer usable
+    - Navigate to user
+    - Security Credentials
+    - Next to the access key, select actions -> delete
+- Remove the permissions
+    - Remove the user from the group
+    - Remove the policy from the group
