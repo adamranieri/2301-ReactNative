@@ -25,6 +25,12 @@
     - Security -> security group -> edit inbound rules and add a rule that allows HTTP (port 80)
 - Copy the public IP address of the instance and put that in your search bar
 
+### EC2 Auto-Scaling
+- As demand increases, we we want to scale up/our to accomodate for these requests
+- As demand decreases, we want to scale down/in so we don't waste resources
+- Horizontal Scaling - adding more instances to handle the load
+- Vertical Scaling - taking an instance and scaling it up by improving its ability such as CPU/memory
+
 ### Exercise:
 - Get an EC2 instance up and running
 - Install a simple web server 

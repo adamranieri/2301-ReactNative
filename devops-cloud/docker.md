@@ -186,4 +186,127 @@ ENTRYPOINT ["java", "-jar", "/usr/local/lib/demo.jar"]
     - Since we're hosting it on RDS, it shouldn't be an issue
 - Environment Variables
     - Because Docker create its own isolated environments, we won't automatically have access to our host machine's environment variables
-- 
+- Expose Port
+    - We must expose the port and map it when we run the container
+
+#### Running a Docker Container on EC2
+- Spin up an EC2 container on AWS
+- Connect to it using SSH
+- Run some commands to get a Docker container running
+```
+sudo yum install git
+sudo yum install docker
+git clone https://github.com/roryeiffe/pet-project-3-9-2023
+cd pet-project-3-9-2023
+sudo systemctl start docker
+docker build -t spring-image .
+sudo docker run -p 8080:8080 --name spring -e RDS_URL=jdbc:postgresql://spring-data-db.cmm7dyyeb3rr.us-east-1.rds.amazonaws.com/pets -e RDS_PASSWORD=password -e RDS_USERNAME=postgres spring-image
+```
+- Make sure the security group is in order and allows us to connect
+    - allow incoming to port 8080
+- Access the public ip address
+- ex: http://35.153.192.58:8080/pets
+- To clean up, just terminate the EC2 instance
+#### Running a Docker Container on ECS
+1. Set up permissions on AWS
+    - Because we'll be using many different servies and features of AWS, we need to ensure that we have the necessary permissions to achieve those
+    - Make sure logged in as root user and go to IAM
+    - Set up a group and add permissions to the group
+        - Any user who is a part of that group will have those permissions
+    - Permissions -> Add Permissions -> Create Inline Policy
+    - The following JSON gives us everything we need to create an ECS service 
+```JSON
+    {
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "application-autoscaling:*",
+                "cloudformation:*",
+                "ec2:AuthorizeSecurityGroupIngress",
+                "ec2:CreateSecurityGroup",
+                "ec2:CreateTags",
+                "ec2:DeleteSecurityGroup",
+                "ec2:DescribeRouteTables",
+                "ec2:DescribeSecurityGroups",
+                "ec2:DescribeSubnets",
+                "ec2:DescribeVpcs",
+                "ec2:RevokeSecurityGroupIngress",
+                "ecs:CreateCluster",
+                "ecs:CreateService",
+                "ecs:DeleteCluster",
+                "ecs:DeleteService",
+                "ecs:DeregisterTaskDefinition",
+                "ecs:DescribeClusters",
+                "ecs:DescribeServices",
+                "ecs:DescribeTasks",
+                "ecs:ListAccountSettings",
+                "ecs:ListTasks",
+                "ecs:RegisterTaskDefinition",
+                "ecs:UpdateService",
+                "elasticloadbalancing:*",
+                "iam:AttachRolePolicy",
+                "iam:CreateRole",
+                "iam:DeleteRole",
+                "iam:DetachRolePolicy",
+                "iam:PassRole",
+                "logs:CreateLogGroup",
+                "logs:DeleteLogGroup",
+                "logs:DescribeLogGroups",
+                "logs:FilterLogEvents",
+                "route53:CreateHostedZone",
+                "route53:DeleteHostedZone",
+                "route53:GetHealthCheck",
+                "route53:GetHostedZone",
+                "route53:ListHostedZonesByName",
+                "servicediscovery:*",
+                "ec2:DescribeVpcs",
+                "autoscaling:*",
+                "iam:CreateInstanceProfile",
+                "iam:AddRoleToInstanceProfile",
+                "iam:RemoveRoleFromInstanceProfile",
+                "iam:DeleteInstanceProfile",
+                "logs:TagResource",
+                "ecr:GetAuthorizationToken",
+                "ecr:BatchCheckLayerAvailability",
+                "ecr:GetDownloadUrlForLayer",
+                "ecr:GetRepositoryPolicy",
+                "ecr:DescribeRepositories",
+                "ecr:ListImages",
+                "ecr:DescribeImages",
+                "ecr:BatchGetImage",
+                "ecr:GetLifecyclePolicy",
+                "ecr:GetLifecyclePolicyPreview",
+                "ecr:ListTagsForResource",
+                "ecr:DescribeImageScanFindings"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+- These permissions are pretty permissive
+
+2. Set up an Access Key for IAM User
+- We'll be setting up our services from the command line
+- Access Keys allow us to "login" from the command line and let us perform operations that we would do from the AWS console
+    - Command Line is the preferred way of doing repeatable actions in AWS as opposed to remembering how to use the online visual interface and having to manually select the right options
+- As root user, go to IAM
+- Select the IAM user which you would like to log in as
+- Go to Security Credentials
+- Create Access Key
+- Select AWS CLI and acknowledge the security recommendation
+- Give it a descriptive name
+- Download the CSV file
+    - Don't show anyone!
+    - These let us login as our IAM user in the command line
+
+3. Create the ECS context
+- We can create a context in Docker so that when we run docker compose, it knows where to host/deploy the application
+    - For example, if we create a context where we login to AWS, it will use a CloudFormation template to create an ECS application
+- Run ```docker context create ecs myecscontext``` on the command line
+- Select AWS secret and token credentials
+- Enter the credentials downloaded in step 2
+- Pick a region
+- To use the context ```docker context use myecscontext```

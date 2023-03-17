@@ -127,3 +127,17 @@
     - What is or isn't allowed for a particular entity
     - Ex: admin access to EC2 instance
     - Read access to S3
+
+## ECS
+- Elastic Container Service
+- Container Orchestration Service
+- Helps us deploy, manage, and scale containerized apps
+
+## Elastic Load Balancing
+- Distributing requests across different targets
+    - Targets could be EC2 or ECS, etc.
+
+## Cloud Formation
+- A lot of AWS projects incorporate many different services
+- Cloud Formation uses Infrastructure as Code where we can build templates of what services we need and it will create the project for us
+
