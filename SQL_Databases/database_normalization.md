@@ -39,7 +39,7 @@
 
 ### Second Normal Form
 - Must be 1NF
-- No Functional Dependencies
+- No Partial Dependencies
     - In other words, all non-key attributes are fully dependent on a primary key
     - No data that can be calculated/determined using the primary key
 - In the above table, we see things like class ID and Class Name which violate 2NF
