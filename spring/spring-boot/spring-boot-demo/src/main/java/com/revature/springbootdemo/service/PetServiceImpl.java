@@ -1,6 +1,7 @@
 package com.revature.springbootdemo.service;
 
 import com.revature.springbootdemo.entity.Pet;
+import com.revature.springbootdemo.exceptions.NameAlreadyExistsException;
 import com.revature.springbootdemo.repository.PetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
@@ -20,7 +21,9 @@ public class PetServiceImpl implements PetService{
 
 
     @Override
-    public Pet insert(Pet pet) {
+    public Pet insert(Pet pet) throws NameAlreadyExistsException {
+        // if this pet name already exists, throw a new exception which we configured to return a 400 status code:
+        if(petRepository.findByName(pet.getName()).size() != 0) throw new NameAlreadyExistsException();
         // From the petRepository, we get the save method
         return petRepository.save(pet);
     }

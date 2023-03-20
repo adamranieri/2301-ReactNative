@@ -2,6 +2,7 @@ package com.revature.springbootdemo.controller;
 
 import com.revature.springbootdemo.dto.LoginRequest;
 import com.revature.springbootdemo.entity.Pet;
+import com.revature.springbootdemo.exceptions.NameAlreadyExistsException;
 import com.revature.springbootdemo.service.PetService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,7 +31,7 @@ public class PetController {
 
     // we do a post mapping for inserting new data
     @PostMapping()
-    public Pet insert(@RequestBody Pet pet) {
+    public Pet insert(@RequestBody Pet pet) throws NameAlreadyExistsException {
         // initialize Logger:
         logger1.info("Inserting; " + pet.toString());
         logger1.warn("This is a warning");

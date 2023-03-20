@@ -88,6 +88,7 @@ These are questions you ***NEED*** to be able to answer. These are questions tha
 - How would you extract query and path parameters from a request URL in your controller?
 - What concerns is the controller layer supposed to handle vs the service layer?
 - How would you specify HTTP status codes to return from your controller?
+    - https://www.baeldung.com/spring-mvc-controller-custom-http-status-code
 - How do you handle exceptions thrown in your code from your controller? What happens if you don’t set up any exception handling?
 - How would you consume an external web service using Spring?
     - https://www.baeldung.com/rest-template
