@@ -1,0 +1,20 @@
+
+a
+java:S18541"?Remove this useless assignment to local variable "petService2".(¦¬è¨ÿÿÿÿÿ8¼³“§ð0
+Z	java:S106#"9Replace this use of System.out or System.err by a logger.(‹ø åýÿÿÿÿ8¿³“§ð0
+X	java:S125"<This block of commented-out lines of code should be removed.(‹Éÿ¼8À³“§ð0
+X	java:S125 "<This block of commented-out lines of code should be removed.(‘ú×ñ8À³“§ð0
+U	java:S106$"9Replace this use of System.out or System.err by a logger.(Ü÷®Ò8Å³“§ð0
+Z	java:S106("9Replace this use of System.out or System.err by a logger.(àÓ˜Âúÿÿÿÿ8Ç³“§ð0
+U	java:S106*"9Replace this use of System.out or System.err by a logger.(¾†î¹8È³“§ð0
+X	java:S125-"<This block of commented-out lines of code should be removed.(–˜øŒ8Ê³“§ð0
+R
+java:S14811"0Remove this unused "petService2" local variable.(¦¬è¨ÿÿÿÿÿ8Ë³“§ð0
+Z	java:S1064"9Replace this use of System.out or System.err by a logger.(®ýáëûÿÿÿÿ8Î³“§ð0
+Z	java:S1066"9Replace this use of System.out or System.err by a logger.(®¥¦­üÿÿÿÿ8Î³“§ð0
+Z	java:S1068"9Replace this use of System.out or System.err by a logger.(áÎÓ°úÿÿÿÿ8Ï³“§ð0
+U	java:S1069"9Replace this use of System.out or System.err by a logger.(¨³øž8Ð³“§ð0
+Z	java:S106;"9Replace this use of System.out or System.err by a logger.(Ñ ²ïüÿÿÿÿ8Ò³“§ð0
+Z	java:S106<"9Replace this use of System.out or System.err by a logger.(Ñ ²ïüÿÿÿÿ8Ò³“§ð0
+P
+java:S1128	".Remove this unused import 'java.util.Scanner'.(ÒÜÅ¸úÿÿÿÿ8Ó³“§ð0

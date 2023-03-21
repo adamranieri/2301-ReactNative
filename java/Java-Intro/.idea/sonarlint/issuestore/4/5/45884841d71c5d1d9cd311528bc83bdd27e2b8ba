@@ -1,0 +1,23 @@
+
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ëøš­8™Öš§ð0
+e
+java:S2095#"HUse try-with-resources or close this "FileReader" in a "finally" clause.(éÝ«ó8®Öš§ð0
+U
+java:S1854#"8Remove this useless assignment to local variable "file".(éÝ«ó8°Öš§ð0
+X	java:S125
+"<This block of commented-out lines of code should be removed.(ÊõÅú8±Öš§ð0
+]	java:S125"<This block of commented-out lines of code should be removed.(ÿ†©øÿÿÿÿÿ8²Öš§ð0
+]	java:S125"<This block of commented-out lines of code should be removed.(þ«ç÷üÿÿÿÿ8²Öš§ð0
+F
+java:S1481#")Remove this unused "file" local variable.(éÝ«ó8´Öš§ð0
+T	java:S106$"9Replace this use of System.out or System.err by a logger.(’Ž.8µÖš§ð0
+U	java:S106%"9Replace this use of System.out or System.err by a logger.(–¼’–8¶Öš§ð0
+U	java:S106("9Replace this use of System.out or System.err by a logger.(šÂƒ8·Öš§ð0
+U	java:S106+"9Replace this use of System.out or System.err by a logger.(Õüìç8·Öš§ð0
+Z	java:S106."9Replace this use of System.out or System.err by a logger.(µ§˜ðþÿÿÿÿ8¸Öš§ð0
+L
+java:S2093 "*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8¸Öš§ð0
+U	java:S1062"9Replace this use of System.out or System.err by a logger.(Ž¿¦â8¹Öš§ð0
+U	java:S1065"9Replace this use of System.out or System.err by a logger.(¡Ã…Œ8³ªœ§ð0
+P
+java:S1128".Remove this unused import 'java.util.Scanner'.(ÒÜÅ¸úÿÿÿÿ8ºÖš§ð0

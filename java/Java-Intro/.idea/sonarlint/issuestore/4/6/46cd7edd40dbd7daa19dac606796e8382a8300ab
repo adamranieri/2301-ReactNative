@@ -1,0 +1,14 @@
+
+\
+java:S1192"FDefine a constant instead of duplicating this literal "Tokyo" 3 times.(“˜àì
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Î°
+Z
+java:S4143"DVerify this is the key that was intended; it was already set before.(¹ÃŞá
+M	java:S106"9Replace this use of System.out or System.err by a logger.(Í˜¡
+N	java:S106!"9Replace this use of System.out or System.err by a logger.(íşÌÿ
+N	java:S106#"9Replace this use of System.out or System.err by a logger.(º’
+S	java:S106$"9Replace this use of System.out or System.err by a logger.(ı „ıÿÿÿÿ
+A
+java:S1602'",Remove useless curly braces around statement(Ã¼¾
+N	java:S106("9Replace this use of System.out or System.err by a logger.(®âø÷
+N	java:S106-"9Replace this use of System.out or System.err by a logger.(îŞ»

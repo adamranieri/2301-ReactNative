@@ -1,0 +1,22 @@
+
+q
+java:S2095K"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(½¨“Ðúÿÿÿÿ8‚µ“§ð0
+r
+java:S2095¹"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(½¨“Ðúÿÿÿÿ8“µ“§ð0
+l
+java:S2095 "OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(­µøÚ8”µ“§ð0
+i
+java:S2095v"GUse try-with-resources or close this "Statement" in a "finally" clause.(é°Áµþÿÿÿÿ8”µ“§ð0
+r
+java:S2095™"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(½¨“Ðúÿÿÿÿ8”µ“§ð0
+T	java:S106"9Replace this use of System.out or System.err by a logger.(ä¾ÈZ8¨µ“§ð0
+X	java:S125"<This block of commented-out lines of code should be removed.(º©Éá8ªµ“§ð0
+Z	java:S106%"9Replace this use of System.out or System.err by a logger.(µâ£äþÿÿÿÿ8²µ“§ð0
+U	java:S106;"9Replace this use of System.out or System.err by a logger.( Û™Õ8µµ“§ð0
+X	java:S125?"<This block of commented-out lines of code should be removed.(±à£š8¶µ“§ð0
+Z	java:S106`"9Replace this use of System.out or System.err by a logger.(ÎÏÈºøÿÿÿÿ8¼µ“§ð0
+[	java:S106"9Replace this use of System.out or System.err by a logger.(Æ´ìåþÿÿÿÿ8Èµ“§ð0
+[	java:S106ž"9Replace this use of System.out or System.err by a logger.(µâ£äþÿÿÿÿ8Öµ“§ð0
+[	java:S106¬"9Replace this use of System.out or System.err by a logger.(Ž®Ã’ùÿÿÿÿ8Øµ“§ð0
+^
+java:S1126½"AReplace this if-then-else statement by a single return statement.(ŠÅ§l8Üµ“§ð0
