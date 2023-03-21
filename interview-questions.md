@@ -106,7 +106,7 @@ These are questions you ***NEED*** to be able to answer. These are questions tha
 - How are Spring repositories implemented by Spring at runtime?
 - What is @Query used for?
 
-### Spring Boot
+### Spring Boot (Module)
 - How is Spring Boot different from legacy Spring applications? What does it mean that it is “opinionated”?
 - What does “convention over configuration” mean?
 - What annotation would you use for Spring Boot apps? What does it do behind the scenes?

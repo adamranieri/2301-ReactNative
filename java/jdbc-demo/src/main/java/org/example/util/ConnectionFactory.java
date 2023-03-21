@@ -22,7 +22,7 @@ public class ConnectionFactory {
     }
 
     // make a method where we have ultimate control over how we instantiate the Connection object
-    public static Connection getConnection() {
+    public static Connection getConnection()  {
         if(connection == null) {
             // This means we haven't created the connection yet so we can do that here
             // What values do we need to connect to the database?
@@ -34,6 +34,7 @@ public class ConnectionFactory {
             String url = bundle.getString("url");
             String username = bundle.getString("username");
             String password = bundle.getString("password");
+
 
             try {
                 // DriverManager.getConnection takes in our credentials and returns a connection to the database

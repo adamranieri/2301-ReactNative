@@ -46,6 +46,13 @@ public class Main {
             System.out.println("This code will happen whether or not we throw an exception");
         }
 
+        try {
+            System.out.println("This is some code in the try block");
+
+        } finally{
+            System.out.println("This is finally");
+        }
+
 
     }
 }

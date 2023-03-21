@@ -37,6 +37,10 @@ public class PetController {
         logger1.warn("This is a warning");
         logger1.error("This is an error");
         return petService.insert(pet);
+        // WIth View Resolver, we would return the particular view we want to see
+        // and the View Resolver would take this and redirect to the right view (ex: views/pet_view.jsp)
+        // Since we're creating our views in React, this method just returns the JSON data and we let React decide how to present the data
+        // return "pet_view";
     }
 
     // configuring this method to run when we send a get request to the end point /pets
