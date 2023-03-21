@@ -1,6 +1,7 @@
 package com.revature.springbootdemo.service;
 
 import com.revature.springbootdemo.entity.Pet;
+import com.revature.springbootdemo.exceptions.NameAlreadyExistsException;
 import com.revature.springbootdemo.repository.PetRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -23,7 +24,7 @@ public class PetServiceTest {
     @Autowired PetService petService;
 
     @Test
-    public void testInsert() {
+    public void testInsert() throws NameAlreadyExistsException {
         // initialize a pet to insert:
         Pet pet = new Pet("Ashes", "Cat", "Tuna");
         // creating the expected pet object once it is inserted and an id is generated:
