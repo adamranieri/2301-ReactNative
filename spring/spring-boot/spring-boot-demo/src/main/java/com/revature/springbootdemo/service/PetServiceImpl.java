@@ -6,6 +6,7 @@ import com.revature.springbootdemo.repository.PetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -29,6 +30,8 @@ public class PetServiceImpl implements PetService{
     }
 
     @Override
+    // we can specify that this transaction is readonly because we're not changing the data in the database
+    @Transactional(readOnly = true)
     public Pet getById(Long id) {
         // findById returns an Optional of the value so we need to .get() the value from that:
         return petRepository.findById(id).get();

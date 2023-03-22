@@ -5,6 +5,7 @@ import com.revature.entity.ListBean;
 import com.revature.entity.Pokemon;
 import com.revature.entity.Trainer;
 import org.springframework.beans.factory.BeanFactory;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -22,6 +23,8 @@ public class App
 
         // Use the beans.xml file to create some beans, setting up a bean factory to create beans
         BeanFactory factoryXml = new ClassPathXmlApplicationContext("beans.xml"); // we pass in the file that we're using as our config data
+
+        ApplicationContext contextXml = new ClassPathXmlApplicationContext("beans.xml");
 
         // getBean returns an object so we need to cast it a HelloWorld object
         HelloWorld helloWorldBean = (HelloWorld) factoryXml.getBean("helloWorld1");

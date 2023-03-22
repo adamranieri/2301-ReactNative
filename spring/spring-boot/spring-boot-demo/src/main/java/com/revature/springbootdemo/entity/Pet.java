@@ -1,11 +1,13 @@
 package com.revature.springbootdemo.entity;
 
+// Lombok is not inherently related to Spring
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+// Lombok has nothing to do with Spring:
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
