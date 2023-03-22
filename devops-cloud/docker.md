@@ -187,7 +187,7 @@ ENTRYPOINT ["java", "-jar", "/usr/local/lib/demo.jar"]
 ##### Running the Container:
 - docker run --name spring-container spring-image
     - The issue here is that the container doesn't have access to environment variables
-- docker run --name spring-container -e RDS_URL=jdbc_url -e RDS_USERNAME = postgres -e RDS_PASSWORD=password spring-image
+- docker run --name spring-container -e RDS_URL=jdbc_url -e RDS_USERNAME=postgres -e RDS_PASSWORD=password spring-image
     - Manually pass in the environment variables
 - docker run --name spring-container -e RDS_URL -e RDS_USERNAME -e RDS_PASSWORD spring-image
     - If we just specify key and no value, it will use our host environment variables:
