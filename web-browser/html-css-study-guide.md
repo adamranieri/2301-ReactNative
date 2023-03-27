@@ -1,0 +1,123 @@
+## HTML/CSS Study Guide
+
+### HTML
+
+- Hypertext Markup Language (HTML) use on the web
+- HTML tags
+  - Required tags
+    - Doctype declaration: `<!DOCTYPE html>` for HTML5
+    - html
+    - head
+    - body
+  - `<head>` metadata tags
+    - meta
+    - title
+    - link
+    - style
+  - `<body>` content tags
+    - div
+    - p
+    - a
+    - ul and ol
+      - li
+    - table
+      - thead
+      - tbody
+      - tr
+        - td
+        - th
+      - caption
+    - span
+    - img
+    - button
+    - br
+    - script
+  - Attributes
+    - class
+    - id
+    - href
+    - name
+    - hidden
+    - style
+  - HTML5
+    - semantic tags
+      - main
+      - section
+      - header
+      - footer
+      - nav
+      - figure
+    - media tags
+      - video
+      - audio
+  - Form tags
+    - form
+      - method and action attributes
+    - input
+    - textarea
+    - select
+      - option
+    - label
+- Form validation
+- Element rendering
+  - Inline
+  - Block
+  - Inline-block
+
+### CSS
+
+- Cascading Style Sheets (CSS) use in the web
+- Cascading nature of CSS
+- Including CSS in HTML documents
+  - Inlining via style attribute
+  - Internal stylesheet
+  - External stylesheet
+- CSS box model
+  - Content
+  - Padding
+  - Border
+  - Margin
+- CSS selectors
+  - Element selectors
+  - Class selector (`.classname {}`)
+  - Id selector (`#id {}`)
+  - Descendant selector (`parentEl childEl {}`)
+  - Direct descendent selector (`parentEl > childEl {}`)
+  - Selecting multiple elements (`el1, el2, el3 {}`)
+  - Advanced selectors
+    - Sibling and adjacent sibling selectors (`el + sibling {}`)
+    - Attribute selector (`[attr] {}`)
+    - Regex attribute selector (attribute selector with `*`,`^`,`$`, and `~` symbols)
+    - Nth child selector (`el:nth-child(n) {}`)
+    - Pseudo-element and pseudo-class selectors (`:before`, `:active`, `:hover`)
+    - Universal selector (`* {}`)
+- Rules for resolving CSS styling conflicts
+  - Specificity of CSS selectors
+    - ID is most specific
+    - class is next
+    - element selector is least specific
+  - Order of declaration
+  - Override operator (`!`)
+- CSS properties
+  - width
+  - height
+    - px
+    - em
+    - %
+    - vh
+  - color
+    - RGB
+    - Hex value
+    - keywords
+  - display
+  - position
+    - absolute
+    - relative
+    - sticky
+    - static
+  - background
+  - font, font-size, font-family
+- Responsive web design
+  - Using relative sizes
+  - Media Queries
+- CSS flexbox
