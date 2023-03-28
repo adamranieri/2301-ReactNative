@@ -24,3 +24,4 @@
         - Code Reviews
         - Merge Parties
         - Reflections
+        - https://business.adobe.com/blog/basics/ceremonies
