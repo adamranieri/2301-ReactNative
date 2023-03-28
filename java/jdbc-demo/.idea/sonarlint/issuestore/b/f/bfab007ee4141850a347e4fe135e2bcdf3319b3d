@@ -1,12 +1,12 @@
 
 q
 java:S2095K"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(½¨“Ðúÿÿÿÿ8‚µ“§ð0
-r
-java:S2095¹"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(½¨“Ðúÿÿÿÿ8“µ“§ð0
 l
 java:S2095 "OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(­µøÚ8”µ“§ð0
 i
 java:S2095v"GUse try-with-resources or close this "Statement" in a "finally" clause.(é°Áµþÿÿÿÿ8”µ“§ð0
+r
+java:S2095¹"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(½¨“Ðúÿÿÿÿ8“µ“§ð0
 r
 java:S2095™"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(½¨“Ðúÿÿÿÿ8”µ“§ð0
 T	java:S106"9Replace this use of System.out or System.err by a logger.(ä¾ÈZ8¨µ“§ð0

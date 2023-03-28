@@ -1,0 +1,26 @@
+- 3rd party APIs
+    - Sending emails to reset password, etc.
+    - HAsh passingwords
+    - Generate PDF
+- Web Tokens
+- How to set up Scrum, boards, team structures
+    - Want everyone to work on front-end and back-end
+        - Don't split up like one team is front-end and other is back-end
+    - Break up by features
+        - Split up and have different teams tackle personal, business, core user stories
+        - Risks/Drawbacks
+            - Personal and business might be using the same table
+            - Overlap between the 2 groups
+                - Make sure you don't code something that someone already worked on
+                - Be careful about how you allocate features
+
+- Organization
+    - Figure out team structure
+    - Set up Github Organization/Repos
+    - Set up Github Project or other Kanban board
+    - Deciding on a timeline, how many sprints
+    - Scrum Ceremonies
+        - Daily stand-ups
+        - Code Reviews
+        - Merge Parties
+        - Reflections
